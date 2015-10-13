@@ -1,0 +1,23 @@
+{
+  "name": "vente",
+  "version": "1.0.0",
+  "description": "The Vente App. An App that helps sales managers to monitor the commercial activity of the Company. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MayasHaddad/vente.git"
+  },
+  "keywords": [
+    "sales",
+    "commercial-activity"
+  ],
+  "author": "Mayas Haddad",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MayasHaddad/vente/issues"
+  },
+  "homepage": "https://github.com/MayasHaddad/vente"
+}
