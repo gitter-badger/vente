@@ -12,13 +12,13 @@ module.exports = {
 
   output: {
     path: 'dist/',
-    filename: 'main.js'
+    filename: 'app.js'
   },
 
   debug: false,
   devtool: false,
   entry: [
-    './src/components/main.js'
+    './src/main.js'
     ],
 
   stats: {
