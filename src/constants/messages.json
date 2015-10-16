@@ -1,0 +1,13 @@
+{
+	"fr-FR": {
+		"createNewLeadFormLabels": {
+			"formName": "Ajouter un nouveau prospet",
+			"firstname": "Prénom",
+			"lastname": "Nom de famille",
+			"email": "Courriel",
+			"company": "Société",
+			"address": "Adresse",
+			"complementaryNote": "Remarques particulières"
+		}
+	}
+}
