@@ -29,7 +29,7 @@ module.exports = {
   eslint: {
     configFile: '.eslintrc'
   },
-  
+
   plugins: [
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({"minify": true}),
@@ -51,7 +51,7 @@ module.exports = {
   module: {
     preLoaders: [{
       test: /\.(js)$/,
-      exclude: /node_modules/,
+      exclude: /node_modules|lib/,
       loader: 'eslint-loader'
     }],
       
