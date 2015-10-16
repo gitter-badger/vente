@@ -26,6 +26,10 @@ module.exports = {
     reasons: false
   },
 
+  eslint: {
+    configFile: '.eslintrc'
+  },
+  
   plugins: [
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({"minify": true}),
@@ -34,7 +38,7 @@ module.exports = {
   ],
 
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['', '.js'],
     alias: {
       'styles': __dirname + '/src/styles',
       'mixins': __dirname + '/src/mixins',
@@ -46,13 +50,13 @@ module.exports = {
     
   module: {
     preLoaders: [{
-      test: /\.(js|jsx)$/,
-      exclude: /node_modules|bower_components/,
-      loader: 'jsxhint'
+      test: /\.(js)$/,
+      exclude: /node_modules/,
+      loader: 'eslint-loader'
     }],
       
     loaders: [{
-      test: /\.(js|jsx)$/,
+      test: /\.(js)$/,
       exclude: /node_modules/,
       loader: 'react-hot!babel-loader'
     }, {

@@ -10,17 +10,20 @@ var webpack = require('webpack');
 module.exports = {
 
   output: {
-    filename: 'main.js',
-    publicPath: '/assets/'
+    path: 'dist/',
+    filename: 'app.js'
   },
 
   cache: true,
   debug: true,
   devtool: false,
   entry: [
-      'webpack/hot/only-dev-server',
       './src/main.js'
   ],
+
+  eslint: {
+    configFile: '.eslintrc'
+  },
 
   stats: {
     colors: true,
@@ -28,7 +31,7 @@ module.exports = {
   },
 
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['', '.js'],
     alias: {
       'styles': __dirname + '/src/styles',
       'mixins': __dirname + '/src/mixins',
@@ -39,12 +42,12 @@ module.exports = {
   },
   module: {
     preLoaders: [{
-      test: /\.(js|jsx)$/,
-      exclude: /node_modules|bower_components/,
-      loader: 'jsxhint'
+      test: /\.(js)$/,
+      exclude: /node_modules/,
+      loader: 'eslint-loader'
     }],
     loaders: [{
-      test: /\.(js|jsx)$/,
+      test: /\.(js)$/,
       exclude: /node_modules/,
       loader: 'react-hot!babel-loader'
     },
@@ -66,5 +69,4 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
   ]
-
 };
