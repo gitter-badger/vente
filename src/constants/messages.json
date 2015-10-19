@@ -1,7 +1,14 @@
 {
 	"fr-FR": {
 		"createNewLeadFormLabels": {
-			"formName": "AJOUTER UN NOUVEAU PROSPECT",
+			"formName": "AJOUTER UN NOUVEAU PROSPECT" 
+		},
+
+		"updateLeadFormLabels": {
+			"formName": "METTRE A JOUR FICHE PROSPECT" 
+		},
+
+		"LeadFormLabels": {
 			"firstname": "Prénom",
 			"lastname": "Nom de famille",
 			"email": "Courriel",
