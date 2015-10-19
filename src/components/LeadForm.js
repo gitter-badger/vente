@@ -30,7 +30,7 @@ class LeadForm extends React.Component {
   */
   render() {
     let vLeadFormLabels = Messages[this.state.locale]
-    .LeadFormLabels
+    .leadFormLabels
      
     return (
       <form className="grid-form">

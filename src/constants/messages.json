@@ -8,7 +8,7 @@
 			"formName": "METTRE A JOUR FICHE PROSPECT" 
 		},
 
-		"LeadFormLabels": {
+		"leadFormLabels": {
 			"firstname": "Prénom",
 			"lastname": "Nom de famille",
 			"email": "Courriel",
