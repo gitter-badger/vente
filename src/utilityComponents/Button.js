@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../src/styles/main.css'
+import '../styles/main.css'
 
 /**
 * This is the component which renders the form for creating a new lead

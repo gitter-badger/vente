@@ -1,8 +1,8 @@
 import React from 'react'
 import Messages from '../constants/messages.json'
 import LeadForm from './LeadForm'
-import OffScreenNavigationMenu from './OffScreenNavigationMenu'
-import BurgerButton from './BurgerButton'
+import OffScreenNavigationMenu from '../utilityComponents/OffScreenNavigationMenu'
+import BurgerButton from '../utilityComponents/BurgerButton'
 
 /**
 * @class UpdateLead
@@ -43,10 +43,8 @@ export default class UpdateLead extends React.Component {
     return (
       <div >
           <OffScreenNavigationMenu menuState={this.state.showMenu}/>
-          <div className={this.state.contentClassName}> 
-            <div onClick={this.updateMenuState}>
-              <BurgerButton/>
-            </div><br/>
+          <div className={this.state.contentClassName}>
+              <BurgerButton clickCallback={this.updateMenuState}/>
             <LeadForm 
               formName={vUpdateNewLeadMessages.formName}
               firstname="Mayas"
