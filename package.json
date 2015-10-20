@@ -4,7 +4,7 @@
   "description": "The Vente App. An App that helps sales managers to monitor the commercial activity of the Company. ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "karma test/karma.conf.js"
   },
   "repository": {
     "type": "git",
@@ -40,6 +40,7 @@
   },
   "dependencies": {
     "react": "^0.14.0",
+    "react-burger-menu": "^1.2.3",
     "react-dom": "^0.14.0",
     "react-router": "^1.0.0-rc3"
   }
