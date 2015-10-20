@@ -2,3 +2,45 @@
     font-family: RobotoRegular;
     src: url(Roboto-Regular.ttf);
 }
+
+body {
+	margin: 0;
+}
+
+
+/* Standard syntax */
+@keyframes menuin {
+    0% { margin-left: -20em; }
+    100% { margin-left: 0em; }
+}
+
+@keyframes menuout {
+    0% { margin-left: 0em; }
+    100% { margin-left: -20em; }
+}
+
+/* Standard syntax */
+@keyframes contentin {
+    0% { margin-left: 20em; }
+    100% { margin-left: 0em; }
+}
+
+/* Standard syntax */
+@keyframes contentout {
+    0% { margin-left: 0em; }
+    100% { margin-left: 20em; }
+}
+
+.content-to-be-pushed-by-menu {
+	animation-fill-mode: forwards !important;
+    animation: contentout 1s;
+}
+
+.content-to-push-menu {
+	animation-fill-mode: forwards !important;
+    animation: contentin 1s;
+}
+
+.menu {
+	animation-fill-mode: forwards !important;
+}

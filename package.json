@@ -39,6 +39,7 @@
     "url-loader": "~0.5.5"
   },
   "dependencies": {
+    "flux": "^2.1.1",
     "react": "^0.14.0",
     "react-burger-menu": "^1.2.3",
     "react-dom": "^0.14.0",

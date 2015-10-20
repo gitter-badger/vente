@@ -1,13 +1,22 @@
 {
 	"fr-FR": {
 		"createNewLeadFormLabels": {
-			"formName": "AJOUTER UN NOUVEAU PROSPECT",
+			"formName": "AJOUTER UN NOUVEAU PROSPECT" 
+		},
+
+		"updateLeadFormLabels": {
+			"formName": "METTRE A JOUR FICHE PROSPECT" 
+		},
+
+		"leadFormLabels": {
 			"firstname": "Prénom",
 			"lastname": "Nom de famille",
 			"email": "Courriel",
 			"company": "Société",
 			"address": "Adresse",
 			"complementaryNote": "Remarques particulières"
-		}
+		},
+
+		"moveToClientButtonLabel": "PASSER LE PROSPECT À CLIENT"
 	}
 }
