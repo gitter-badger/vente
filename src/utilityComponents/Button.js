@@ -1,5 +1,6 @@
 import React from 'react'
 import '../styles/main.css'
+import ColorsTheme from '../constants/ColorsTheme.json'
 
 /**
 * This is the component which renders the form for creating a new lead
@@ -18,14 +19,16 @@ export default class Button extends React.Component {
     this.showShadow = this.showShadow.bind(this)
     this.hideShadow = this.hideShadow.bind(this)
     
-    this.state = { button: <div 
+    let vColorTheme = 'darkBlue'
+    this.state = { 
+      button: <div 
         onClick = { this.props.clickCallback } 
         onMouseOver = { this.showShadow }
         onMouseOut = { this.hideShadow }
         style= { {fontFamily: 'RobotoRegular', 
-        backgroundColor: '#01579B', 
+        backgroundColor: ColorsTheme[vColorTheme].buttonColor, 
         borderRadius: 1 + 'px', 
-        height: 20 + 'px',
+        height: 30 + 'px',
         padding: 5 + 'px',
         display: 'table-cell',
         wordWrap: 'break-word',
@@ -33,7 +36,8 @@ export default class Button extends React.Component {
         float: 'right',
         color: 'white'} }>
 	  	    { this.props.label }
- 	    </div> }
+ 	    </div>,
+      colorTheme: vColorTheme }
     
   }
   
@@ -45,9 +49,9 @@ export default class Button extends React.Component {
         onMouseOver = { this.showShadow }
         onMouseOut = { this.hideShadow }
         style= { {fontFamily: 'RobotoRegular', 
-        backgroundColor: '#01579B', 
+        backgroundColor: ColorsTheme[this.state.colorTheme].buttonColor, 
         borderRadius: 1 + 'px', 
-        height: 20 + 'px',
+        height: 30 + 'px',
         padding: 5 + 'px',
         display: 'table-cell',
         wordWrap: 'break-word',
@@ -56,7 +60,8 @@ export default class Button extends React.Component {
         color: 'white',
         boxShadow : 0 + 'px ' + 0 + 'px ' + 2 + 'px ' + '#888888'} }>
 	  	    { this.props.label }
- 	    </div>
+ 	    </div>,
+      colorTheme: this.state.colorTheme
     })
   }
   
@@ -67,9 +72,9 @@ export default class Button extends React.Component {
         onMouseOver = { this.showShadow }
         onMouseOut = { this.hideShadow }
         style= { {fontFamily: 'RobotoRegular', 
-        backgroundColor: '#01579B', 
+        backgroundColor: ColorsTheme[this.state.colorTheme].buttonColor, 
         borderRadius: 1 + 'px', 
-        height: 20 + 'px',
+        height: 30 + 'px',
         padding: 5 + 'px',
         display: 'table-cell',
         wordWrap: 'break-word',
@@ -77,7 +82,8 @@ export default class Button extends React.Component {
         float: 'right',
         color: 'white'} }>
 	  	    { this.props.label }
- 	    </div>
+ 	    </div>,
+      colorTheme: this.state.colorTheme
     })
   }
   
