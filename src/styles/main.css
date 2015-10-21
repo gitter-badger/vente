@@ -5,6 +5,7 @@
 
 body {
 	margin: 0;
+	overflow-x: hidden;
 }
 
 
@@ -21,24 +22,27 @@ body {
 
 /* Standard syntax */
 @keyframes contentin {
-    0% { margin-left: 20em; }
-    100% { margin-left: 0em; }
+    0% { left: 20em; }
+    100% { left: 0em; }
 }
 
 /* Standard syntax */
 @keyframes contentout {
-    0% { margin-left: 0em; }
-    100% { margin-left: 20em; }
+    0% { left: 0em; }
+    100% { left: 20em; }
 }
 
 .content-to-be-pushed-by-menu {
 	animation-fill-mode: forwards !important;
     animation: contentout 1s;
+    position: relative;
+
 }
 
 .content-to-push-menu {
 	animation-fill-mode: forwards !important;
     animation: contentin 1s;
+    position: relative;
 }
 
 .menu {
