@@ -1,6 +1,7 @@
 {
 	"darkBlue": {
 		"menuBackground": "#1A237E",
+		"buttonColor": "#1A237E",
 		"burgerColor": "#1A237E"
 	}	
 }

@@ -41,18 +41,19 @@ export default class UpdateLead extends React.Component {
     let vUpdateNewLeadMessages = Messages[this.state.locale]
          .updateLeadFormLabels
     return (
-      <div >
-          <OffScreenNavigationMenu menuState={this.state.showMenu}/>
-          <div className={this.state.contentClassName}>
-              <BurgerButton clickCallback={this.updateMenuState}/>
-            <LeadForm 
-              formName={vUpdateNewLeadMessages.formName}
-              firstname="Mayas"
-              lastname="HADDAD"
-              email="mayas_91@goatmail.com"
-              company="Cap"
-              address="3 rue Molière, PARIS"
-              complementaryNote="This is the best lead so far" />
+      <div>
+        <OffScreenNavigationMenu menuState={this.state.showMenu}/>
+        <div className={this.state.contentClassName}>
+          <BurgerButton clickCallback={this.updateMenuState}/>
+          <LeadForm 
+            formName={vUpdateNewLeadMessages.formName}
+            firstname="Mayas"
+            lastname="HADDAD"
+            email="mayas_91@goatmail.com"
+            company="Cap"
+            address="3 rue Molière, PARIS"
+            complementaryNote="This is the best lead so far"
+            submitButtonLabel="METTRE A JOUR" />
         </div>
       </div>
     )

@@ -4,6 +4,7 @@ import '../styles/main.css'
 window.$ = window.jQuery = require('../../lib/jquery.js')
 import '../../lib/gridforms/gridforms.js'
 import Messages from '../constants/messages.json'
+import Button from '../utilityComponents/Button'
 
 /**
 * @class LeadForm
@@ -67,6 +68,7 @@ class LeadForm extends React.Component {
               </div>
             </div>
         </fieldset>
+        <Button label={this.props.submitButtonLabel} />
       </form>
     )
   }
@@ -75,6 +77,7 @@ class LeadForm extends React.Component {
 React.statics = {
   propTypes: {
     formName: React.PropTypes.string.isRequired,
+    submitButtonLabel: React.PropTypes.string.isRequired,
     firstname: React.PropTypes.string,
     lastname: React.PropTypes.string,
     email: React.PropTypes.string,
