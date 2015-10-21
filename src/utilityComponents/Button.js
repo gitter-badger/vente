@@ -1,6 +1,7 @@
 import React from 'react'
 import '../styles/main.css'
 import ColorsTheme from '../constants/ColorsTheme.json'
+import Immutable from 'immutable'
 
 /**
 * This is the component which renders the form for creating a new lead
@@ -15,74 +16,49 @@ export default class Button extends React.Component {
   constructor(props) {
     super(props)
     this.props = props
-    this.state = {}
+    
     this.showShadow = this.showShadow.bind(this)
     this.hideShadow = this.hideShadow.bind(this)
     
     let vColorTheme = 'darkBlue'
-    this.state = { 
-      button: <div 
-        onClick = { this.props.clickCallback } 
-        onMouseOver = { this.showShadow }
-        onMouseOut = { this.hideShadow }
-        style= { {fontFamily: 'RobotoRegular', 
-        backgroundColor: ColorsTheme[vColorTheme].buttonColor, 
-        borderRadius: 1 + 'px', 
-        height: 30 + 'px',
-        padding: 5 + 'px',
-        display: 'table-cell',
-        wordWrap: 'break-word',
-        wordBreak: 'break-word',
-        float: 'right',
-        color: 'white'} }>
-	  	    { this.props.label }
- 	    </div>,
-      colorTheme: vColorTheme }
     
+    this.mButtonStyle = {
+      fontFamily: 'RobotoRegular', 
+      backgroundColor: ColorsTheme[vColorTheme].buttonColor, 
+      borderRadius: 1 + 'px', 
+      height: 30 + 'px',
+      padding: 5 + 'px',
+      display: 'table-cell',
+      wordWrap: 'break-word',
+      wordBreak: 'break-word',
+      float: 'right',
+      color: 'white'
+    }
+
+    this.state = { 
+      colorTheme: vColorTheme,
+      style: this.mButtonStyle 
+    }
   }
   
   showShadow() {
-     
+    let oldStyle = Immutable.Map(this.state.style)
+
+    let newStyle = oldStyle.set('boxShadow', 0 + 'px ' + 0 + 'px ' + 5 + 'px ' + '#888888')
+    
     this.setState({
-      button: <div 
-        onClick = { this.props.clickCallback } 
-        onMouseOver = { this.showShadow }
-        onMouseOut = { this.hideShadow }
-        style= { {fontFamily: 'RobotoRegular', 
-        backgroundColor: ColorsTheme[this.state.colorTheme].buttonColor, 
-        borderRadius: 1 + 'px', 
-        height: 30 + 'px',
-        padding: 5 + 'px',
-        display: 'table-cell',
-        wordWrap: 'break-word',
-        wordBreak: 'break-word',
-        float: 'right',
-        color: 'white',
-        boxShadow : 0 + 'px ' + 0 + 'px ' + 2 + 'px ' + '#888888'} }>
-	  	    { this.props.label }
- 	    </div>,
+      style: newStyle.toObject(),
       colorTheme: this.state.colorTheme
     })
   }
   
   hideShadow() {
+    let oldStyle = Immutable.Map(this.state.style)
+
+    let newStyle = oldStyle.remove('boxShadow')
+    
     this.setState({
-      button: <div 
-        onClick = { this.props.clickCallback } 
-        onMouseOver = { this.showShadow }
-        onMouseOut = { this.hideShadow }
-        style= { {fontFamily: 'RobotoRegular', 
-        backgroundColor: ColorsTheme[this.state.colorTheme].buttonColor, 
-        borderRadius: 1 + 'px', 
-        height: 30 + 'px',
-        padding: 5 + 'px',
-        display: 'table-cell',
-        wordWrap: 'break-word',
-        wordBreak: 'break-word',
-        float: 'right',
-        color: 'white'} }>
-	  	    { this.props.label }
- 	    </div>,
+      style: newStyle.toObject(),
       colorTheme: this.state.colorTheme
     })
   }
@@ -92,6 +68,12 @@ export default class Button extends React.Component {
   * @returns {jsx}
   */
   render() {
-    return <div>{this.state.button}</div>
+    return (<div 
+      onClick = { this.props.clickCallback } 
+      onMouseOver = { this.showShadow }
+      onMouseOut = { this.hideShadow }
+      style = { this.state.style }>
+        { this.props.label }
+    </div>)
   }
 }
