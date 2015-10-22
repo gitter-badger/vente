@@ -32,7 +32,8 @@ export default class Button extends React.Component {
       wordWrap: 'break-word',
       wordBreak: 'break-word',
       float: 'right',
-      color: 'white'
+      color: 'white',
+      cursor: 'pointer'
     }
 
     this.state = { 
@@ -44,7 +45,7 @@ export default class Button extends React.Component {
   showShadow() {
     let oldStyle = Immutable.Map(this.state.style)
 
-    let newStyle = oldStyle.set('boxShadow', 0 + 'px ' + 0 + 'px ' + 5 + 'px ' + '#888888')
+    let newStyle = oldStyle.set('boxShadow', 0 + 'px ' + 0 + 'px ' + 10 + 'px ' + '#888888')
     
     this.setState({
       style: newStyle.toObject(),
@@ -72,6 +73,8 @@ export default class Button extends React.Component {
       onClick = { this.props.clickCallback } 
       onMouseOver = { this.showShadow }
       onMouseOut = { this.hideShadow }
+      onMouseDown = { this.hideShadow }
+      onMouseUp = { this.showShadow }
       style = { this.state.style }>
         { this.props.label }
     </div>)
