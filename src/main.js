@@ -10,7 +10,8 @@ import UpdateLead from './components/UpdateLead'
 	ReactDOM.render((
 	  <Router>
 	    <Route path="/create-new-lead" component={CreateNewLead}/>
-	    <Route path="/" component={UpdateLead}/>
+	    <Route path="/update-lead" component={UpdateLead}/>
+	    <Route path="/" component={CreateNewLead}/>
 	  </Router>
 	), app)
 })()
