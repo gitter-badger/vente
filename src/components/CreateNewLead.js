@@ -1,6 +1,7 @@
 import React from 'react'
 import Messages from '../constants/messages.json'
 import LeadForm from './LeadForm'
+import OffScreenNavigationContent from '../utilityComponents/OffScreenNavigationContent'
 
 /**
 * This is the component which renders the form for creating a new lead
@@ -25,9 +26,13 @@ export default class CreateNewLead extends React.Component {
   render() {
     let vCreateNewLeadMessages = Messages[this.state.locale]
     .createNewLeadFormLabels
-     
+    
+    let vCreatNewLeadForm = <LeadForm 
+        formName= { vCreateNewLeadMessages.formName }
+        submitButtonLabel = { vCreateNewLeadMessages.submitButtonLabel } />
+        
     return (
-      <LeadForm formName={vCreateNewLeadMessages.formName} />
+      <OffScreenNavigationContent content = { vCreatNewLeadForm } />
     )
   }
 }
