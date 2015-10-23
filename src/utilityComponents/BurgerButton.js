@@ -19,18 +19,19 @@ export default class BurgerButton extends React.Component {
 	render() {
 		let vBurgerElementStyle = {
 			backgroundColor: ColorsTheme[this.state.colorTheme].burgerColor, 
-			height: 2 + 'px', 
-			marginLeft: 5 + 'px', 
-			marginTop: 2 + 'px'
+			height: 5 + 'px', 
+			marginLeft: 10 + 'px', 
+			marginTop: 5 + 'px'
 		}
+		
 		return (
-		<div 
-			onClick={this.props.clickCallback}
-			style={{width: 20 + 'px', cursor: 'pointer'}}>
-			<div style={vBurgerElementStyle}></div>
-	        <div style={vBurgerElementStyle}></div>
-	        <div style={vBurgerElementStyle}></div>
-        </div>
+			<div 
+				onClick = { this.props.clickCallback }
+				style = { {width: 40 + 'px', cursor: 'pointer'} } >
+				<div style = { vBurgerElementStyle } ></div>
+		        <div style = { vBurgerElementStyle } ></div>
+		        <div style = { vBurgerElementStyle } ></div>
+	        </div>
         )
     }
 }
