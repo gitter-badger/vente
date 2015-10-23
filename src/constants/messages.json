@@ -1,11 +1,13 @@
 {
 	"fr-FR": {
 		"createNewLeadFormLabels": {
-			"formName": "AJOUTER UN NOUVEAU PROSPECT" 
+			"formName": "AJOUTER UN NOUVEAU PROSPECT",
+			"submitButtonLabel": "AJOUTER PROSPECT"
 		},
 
 		"updateLeadFormLabels": {
-			"formName": "METTRE A JOUR FICHE PROSPECT" 
+			"formName": "METTRE A JOUR FICHE PROSPECT",
+			"submitButtonLabel": "METTRE A JOUR"
 		},
 
 		"leadFormLabels": {

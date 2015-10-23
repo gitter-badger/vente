@@ -26,14 +26,14 @@ export default class UpdateLead extends React.Component {
          .updateLeadFormLabels
 
     let vUpdateLeadForm = <LeadForm 
-            formName={vUpdateNewLeadMessages.formName}
-            firstname="Mayas"
-            lastname="HADDAD"
-            email="mayas_91@goatmail.com"
-            company="Cap"
-            address="3 rue Molière, PARIS"
-            complementaryNote="This is the best lead so far"
-            submitButtonLabel="METTRE A JOUR" />
+            formName = { vUpdateNewLeadMessages.formName }
+            firstname = "Mayas"
+            lastname = "HADDAD"
+            email = "mayas_91@goatmail.com"
+            company = "Cap"
+            address = "3 rue Molière, PARIS"
+            complementaryNote = "This is the best lead so far"
+            submitButtonLabel = { vUpdateNewLeadMessages.submitButtonLabel } />
 
     return (
       <OffScreenNavigationContent content = { vUpdateLeadForm } />
