@@ -19,7 +19,7 @@ export default class Button extends React.Component {
     
     this.showShadow = this.showShadow.bind(this)
     this.hideShadow = this.hideShadow.bind(this)
-    
+    this.handleClick = this.handleClick.bind(this)
     let vColorTheme = 'darkBlue'
     
     this.mButtonStyle = {
@@ -64,13 +64,18 @@ export default class Button extends React.Component {
     })
   }
   
+  handleClick() {
+    this.props.clickCallback(this.props.data)
+  }
+  
   /**
   * renders the JSX representing the add new lead form.
   * @returns {jsx}
   */
   render() {
+    
     return (<div 
-      onClick = { this.props.clickCallback } 
+      onClick = { this.handleClick }
       onMouseOver = { this.showShadow }
       onMouseOut = { this.hideShadow }
       onMouseDown = { this.hideShadow }
