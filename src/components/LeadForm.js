@@ -21,10 +21,28 @@ class LeadForm extends React.Component {
     super(props)
     this.props = props
     this.handleChange = this.handleChange.bind(this)
+    this.dataCheck = this.dataCheck.bind(this)
     
     this.state = {
-      locale: 'fr-FR'
+      locale: 'fr-FR',
+      style: {}
     }
+  }
+  
+  dataCheck() {
+    for(let key in this.refs) {
+      if(!this.refs[key].value && key !== 'sideNote') {
+        let vOldState = Immutable.Map(this.state)
+        let style = {}
+        style[key] = { backgroundColor: '#F44336' }
+        let vNewState = vOldState.set('style', style)
+        console.log(vNewState.toObject().style)
+        this.setState(vNewState.toObject())
+        return false
+      }
+    }
+
+    return true
   }
   
   handleChange() {
@@ -57,25 +75,25 @@ class LeadForm extends React.Component {
             <legend style={{fontFamily: 'RobotoRegular'}}>{this.props.formName}</legend>
             <div data-row-span="2">
               <div data-field-span="1">
-                <label>{vLeadFormLabels.firstname}</label>
+                <label style={this.state.style.firstname}>{vLeadFormLabels.firstname}</label>
                 <input type="text" ref="firstname" onChange={this.handleChange} defaultValue={this.props.firstname} />
               </div>
               <div data-field-span="1">
-                <label>{vLeadFormLabels.lastname}</label>
+                <label style={this.state.style.lastname}>{vLeadFormLabels.lastname}</label>
                 <input type="text" ref="lastname" onChange={this.handleChange} defaultValue={this.props.lastname} />
               </div>
             </div>
             <div data-row-span="3">
               <div data-field-span="1">
-                <label>{vLeadFormLabels.email}</label>
+                <label style={this.state.style.email}>{vLeadFormLabels.email}</label>
                 <input type="text" ref="email" onChange={this.handleChange} defaultValue={this.props.email} />
               </div>
               <div data-field-span="1">
-                <label>{vLeadFormLabels.company}</label>
+                <label style={this.state.style.company}>{vLeadFormLabels.company}</label>
                 <input type="text" ref="company" onChange={this.handleChange} defaultValue={this.props.company} />
               </div>
               <div data-field-span="1">
-                <label>{vLeadFormLabels.address}</label>
+                <label style={this.state.style.address}>{vLeadFormLabels.address}</label>
                 <input type="text" ref="address" onChange={this.handleChange} defaultValue={this.props.address} />
               </div>
             </div>
@@ -86,7 +104,7 @@ class LeadForm extends React.Component {
               </div>
             </div>
         </fieldset>
-        <Button label={this.props.submitButtonLabel} data={this.state.lead} clickCallback={this.props.clickCallback} />
+        <Button label={this.props.submitButtonLabel} dataCheck={this.dataCheck} data={this.state.lead} clickCallback={this.props.clickCallback} />
       </form>
     )
   }
