@@ -65,7 +65,9 @@ export default class Button extends React.Component {
   }
   
   handleClick() {
-    this.props.clickCallback(this.props.data)
+    if(this.props.dataCheck() !== false) {
+      this.props.clickCallback(this.props.data)
+    }
   }
   
   /**
