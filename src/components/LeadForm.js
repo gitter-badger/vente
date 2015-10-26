@@ -36,7 +36,6 @@ class LeadForm extends React.Component {
         let style = {}
         style[key] = { backgroundColor: '#F44336' }
         let vNewState = vOldState.set('style', style)
-        console.log(vNewState.toObject().style)
         this.setState(vNewState.toObject())
         return false
       }
