@@ -131,12 +131,39 @@ class LeadForm extends React.Component {
                 <label style={this.state.style.email}>{vLeadFormLabels.email}</label>
                 <input type="text" ref="email" onChange={this.handleChange} defaultValue={this.props.email} />
               </div>
-              <div data-field-span="2">
-                <label style={this.state.style.address}>{vLeadFormLabels.address}</label>
-                <input type="text" ref="address" onChange={this.handleChange} defaultValue={this.props.address} />
+              <div data-field-span="1">
+                <label style={this.state.style.celPhone}>{vLeadFormLabels.celPhone}</label>
+                <input type="text" ref="celPhone" onChange={this.handleChange} defaultValue={this.props.celPhone} />
+              </div>
+              <div data-field-span="1">
+                <label style={this.state.style.email}>{vLeadFormLabels.officePhone}</label>
+                <input type="text" ref="officePhone" onChange={this.handleChange} defaultValue={this.props.officePhone} />
               </div>
             </div>
             
+            <fieldset>
+            <legend style={{fontFamily: 'RobotoRegular'}}>{vLeadFormLabels.address.label}</legend>
+              <div data-row-span="4">
+                <div data-field-span="1">
+                  <label style={this.state.style.addressStreet}>{vLeadFormLabels.address.street}</label>
+                  <input type="text" ref="street" onChange={this.handleChange} defaultValue={this.props.addressStreet} />
+                </div>
+                <div data-field-span="1">
+                  <label style={this.state.style.addressZipCode}>{vLeadFormLabels.address.zipCode}</label>
+                  <input type="text" ref="zipCode" onChange={this.handleChange} defaultValue={this.props.addressZipCode} />
+                </div>
+                 <div data-field-span="1">
+                  <label style={this.state.style.addressCity}>{vLeadFormLabels.address.city}</label>
+                  <input type="text" ref="city" onChange={this.handleChange} defaultValue={this.props.addressCity} />
+                </div>
+                <div data-field-span="1">
+                  <label style={this.state.style.addressCountry}>{vLeadFormLabels.address.country}</label>
+                 <select>
+                    {Messages[this.state.locale].countries.filter(function(i) { return (<option> i </option>)})}
+                  </select>
+                </div>
+              </div>
+            </fieldset>
             <div data-row-span="2">
               <div data-field-span="1">
                 <label style={this.state.style.company}>{vLeadFormLabels.company}</label>
