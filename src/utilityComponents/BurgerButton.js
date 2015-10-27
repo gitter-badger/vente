@@ -27,7 +27,7 @@ export default class BurgerButton extends React.Component {
 		return (
 			<div 
 				onClick = { this.props.clickCallback }
-				style = { {width: 45 + 'px', cursor: 'pointer', margin: 1 + 'em'} } >
+				style = { {width: 45 + 'px', cursor: 'pointer', padding: 1 + 'em'} } >
 				<div style = { vBurgerElementStyle } ></div>
 		        <div style = { vBurgerElementStyle } ></div>
 		        <div style = { vBurgerElementStyle } ></div>
