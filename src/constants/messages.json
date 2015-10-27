@@ -12,7 +12,7 @@
 
 		"leadFormLabels": {
 			"firstname": "Prénom",
-			"lastname": "Nom de famille",
+			"lastname": "Nom",
 			"email": "Courriel",
 			"company": "Société",
 			"address": "Adresse",
