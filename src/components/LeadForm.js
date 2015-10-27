@@ -24,6 +24,7 @@ class LeadForm extends React.Component {
     this.handleChange = this.handleChange.bind(this)
     this.dataCheck = this.dataCheck.bind(this)
     this.makeDatePickerAppear = this.makeDatePickerAppear.bind(this)
+    this.handleDatePicked = this.handleDatePicked.bind(this)
     this.state = {
       locale: 'fr-FR',
       style: {}
@@ -73,12 +74,20 @@ class LeadForm extends React.Component {
     this.setState(vNewState.toObject())
   }
   
+  handleDatePicked(e) {
+    this.refs.birthday.value = e
+    let vOldState = Immutable.Map(this.state)
+    let vNewState = vOldState.set('datePicker', null)
+    this.setState(vNewState.toObject())
+  }
+    
   makeDatePickerAppear() {
     let vToday = new Date()
     let vMonthNumber = vToday.getMonth() + 1
     let vTodayYYYYMMDD = vToday.getFullYear() + '-' + vMonthNumber + '-' + vToday.getDate()
-    let vDatePicker = <DatePicker locale='fr-FR' minDate='1900-01-01' maxDate= {vTodayYYYYMMDD} 
-    date={vToday} />
+    let vDatePicker = <DatePicker locale={this.state.locale} minDate='1900-01-01' maxDate= {vTodayYYYYMMDD} 
+    date={vToday} 
+    onChange={this.handleDatePicked} />
     let vOldState = Immutable.Map(this.state)
     let vNewState = vOldState.set('datePicker', vDatePicker)
     this.setState(vNewState.toObject())
@@ -90,7 +99,6 @@ class LeadForm extends React.Component {
   render() {
     let vLeadFormLabels = Messages[this.state.locale]
     .leadFormLabels
-    
     return (
       <div>
       
@@ -114,7 +122,7 @@ class LeadForm extends React.Component {
               <div data-field-span="1">
                 <label style={this.state.style.birthday}>{vLeadFormLabels.birthday}</label>
                 <div style={{position: 'fixed', width: 30 + '%', height: 'auto', right: 0}}>{this.state.datePicker}</div>
-                <input type="text" ref="birthday" onFocus={this.makeDatePickerAppear} />
+                <input type="text" ref="birthday" onClick={this.makeDatePickerAppear} />
               </div>
             </div>
             
