@@ -33,7 +33,8 @@ export default class Button extends React.Component {
       wordBreak: 'break-word',
       float: 'right',
       color: 'white',
-      cursor: 'pointer'
+      cursor: 'pointer',
+      margin: 2 + 'em'
     }
 
     this.state = { 
