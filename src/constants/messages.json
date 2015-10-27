@@ -11,11 +11,16 @@
 		},
 
 		"leadFormLabels": {
+			"title": "Civilité",
+			"titleMr": "Mr",
+			"titleMrs": "Mme",
 			"firstname": "Prénom",
 			"lastname": "Nom",
+			"birthday": "Date de naissance",
 			"email": "Courriel",
 			"company": "Société",
 			"address": "Adresse",
+			"budget": "budget",
 			"complementaryNote": "Remarques particulières"
 		},
 

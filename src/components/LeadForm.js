@@ -6,7 +6,8 @@ import '../../lib/gridforms/gridforms.js'
 import Messages from '../constants/messages.json'
 import Button from '../utilityComponents/Button'
 import Immutable from 'immutable'
-
+import'react-date-picker/index.css'
+import DatePicker from 'react-date-picker'
 /**
 * @class LeadForm
 * @author Mayas Haddad
@@ -22,7 +23,7 @@ class LeadForm extends React.Component {
     this.props = props
     this.handleChange = this.handleChange.bind(this)
     this.dataCheck = this.dataCheck.bind(this)
-    
+    this.makeDatePickerAppear = this.makeDatePickerAppear.bind(this)
     this.state = {
       locale: 'fr-FR',
       style: {}
@@ -72,6 +73,17 @@ class LeadForm extends React.Component {
     this.setState(vNewState.toObject())
   }
   
+  makeDatePickerAppear() {
+    let vToday = new Date()
+    let vMonthNumber = vToday.getMonth() + 1
+    let vTodayYYYYMMDD = vToday.getFullYear() + '-' + vMonthNumber + '-' + vToday.getDate()
+    console.log(vTodayYYYYMMDD)
+    let vDatePicker = <DatePicker locale='fr-FR' minDate='1900-01-01' maxDate= {vTodayYYYYMMDD} 
+    date={vToday} />
+    let vOldState = Immutable.Map(this.state)
+    let vNewState = vOldState.set('datePicker', vDatePicker)
+    this.setState(vNewState.toObject())
+  }
   /**
   * renders the JSX representing the add new lead form.
   * @returns {jsx}
@@ -81,10 +93,17 @@ class LeadForm extends React.Component {
     .leadFormLabels
     
     return (
+      <div>
+      
       <form className="grid-form">
         <fieldset>
             <legend style={{fontFamily: 'RobotoRegular'}}>{this.props.formName}</legend>
-            <div data-row-span="3">
+            <div data-row-span="4">
+              <div data-field-span="1">
+                <label style={this.state.style.title}>{vLeadFormLabels.title}</label>
+                <label>{vLeadFormLabels.titleMr}<input type="radio" ref="mr" onChange={this.handleChange} name="customer-title[]" /></label>
+                <label>{vLeadFormLabels.titleMrs}<input type="radio" ref="mrs" onChange={this.handleChange} name="customer-title[]" /></label>
+              </div>       
               <div data-field-span="1">
                 <label style={this.state.style.firstname}>{vLeadFormLabels.firstname}</label>
                 <input type="text" ref="firstname" onChange={this.handleChange} defaultValue={this.props.firstname} />
@@ -94,19 +113,31 @@ class LeadForm extends React.Component {
                 <input type="text" ref="lastname" onChange={this.handleChange} defaultValue={this.props.lastname} />
               </div>
               <div data-field-span="1">
+                <label style={this.state.style.birthday}>{vLeadFormLabels.birthday}</label>
+                <div style={{position: 'fixed', width: 30 + '%', height: 'auto', right: 0}}>{this.state.datePicker}</div>
+                <input type="text" ref="birthday" onFocus={this.makeDatePickerAppear} />
+              </div>
+            </div>
+            
+            <div data-row-span="3">
+              <div data-field-span="1">
                 <label style={this.state.style.email}>{vLeadFormLabels.email}</label>
                 <input type="text" ref="email" onChange={this.handleChange} defaultValue={this.props.email} />
               </div>
+              <div data-field-span="2">
+                <label style={this.state.style.address}>{vLeadFormLabels.address}</label>
+                <input type="text" ref="address" onChange={this.handleChange} defaultValue={this.props.address} />
+              </div>
             </div>
+            
             <div data-row-span="2">
-              
               <div data-field-span="1">
                 <label style={this.state.style.company}>{vLeadFormLabels.company}</label>
                 <input type="text" ref="company" onChange={this.handleChange} defaultValue={this.props.company} />
               </div>
               <div data-field-span="1">
-                <label style={this.state.style.address}>{vLeadFormLabels.address}</label>
-                <input type="text" ref="address" onChange={this.handleChange} defaultValue={this.props.address} />
+                <label style={this.state.style.budget}>{vLeadFormLabels.budget}</label>
+                <input type="text" ref="budget" onChange={this.handleChange} defaultValue={this.props.budget} />
               </div>
             </div>
             <div data-row-span="1">
@@ -118,6 +149,7 @@ class LeadForm extends React.Component {
         </fieldset>
         <Button label={this.props.submitButtonLabel} dataCheck={this.dataCheck} data={this.state.lead} clickCallback={this.props.clickCallback} />
       </form>
+      </div>
     )
   }
 }
