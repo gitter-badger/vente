@@ -77,7 +77,6 @@ class LeadForm extends React.Component {
     let vToday = new Date()
     let vMonthNumber = vToday.getMonth() + 1
     let vTodayYYYYMMDD = vToday.getFullYear() + '-' + vMonthNumber + '-' + vToday.getDate()
-    console.log(vTodayYYYYMMDD)
     let vDatePicker = <DatePicker locale='fr-FR' minDate='1900-01-01' maxDate= {vTodayYYYYMMDD} 
     date={vToday} />
     let vOldState = Immutable.Map(this.state)
