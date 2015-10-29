@@ -26,7 +26,9 @@ class LeadForm extends React.Component {
     this.makeDatePickerAppear = this.makeDatePickerAppear.bind(this)
     this.handleDatePicked = this.handleDatePicked.bind(this)
     this.hideDatePicker = this.hideDatePicker.bind(this)
-
+    this.handleTitleChangeMr = this.handleTitleChangeMr.bind(this)
+    this.handleTitleChangeMrs = this.handleTitleChangeMrs.bind(this)
+    
     this.state = {
       locale: 'fr-FR',
       style: {}
@@ -34,9 +36,16 @@ class LeadForm extends React.Component {
   }
   
   dataCheck() {
+    
+    let style = {}
+    
+    if(!this.state.title) {
+        style['title'] = { backgroundColor: '#F44336' }      
+        this.setState({'style': style})
+        return false
+    }
+    
     for(let key in this.refs) {
-      let vOldState = Immutable.Map(this.state)
-      let style = {}
       let success = true
       if(!this.refs[key].value && key !== 'sideNote') {
         style[key] = { backgroundColor: '#F44336' }      
@@ -47,12 +56,11 @@ class LeadForm extends React.Component {
         if(!re.test(this.refs[key].value)) {
           style[key] = { backgroundColor: '#FFEB3B' }
           success = false
-        } 
+        }
       }
-
+      
       if(!success) {
-        let vNewState = vOldState.set('style', style)
-        this.setState(vNewState.toObject())
+        this.setState({'style': style})
         return false
       }
     }
@@ -105,6 +113,14 @@ class LeadForm extends React.Component {
     e.stopPropagation()
   }
   
+  handleTitleChangeMr() {
+    this.setState({'title': 'mr'})
+  }
+  
+  handleTitleChangeMrs() {
+    this.setState({'title': 'mrs'})
+  }
+  
   /**
   * renders the JSX representing the add new lead form.
   * @returns {jsx}
@@ -121,8 +137,8 @@ class LeadForm extends React.Component {
             <div data-row-span="4">
               <div data-field-span="1">
                 <label style={this.state.style.title}>{vLeadFormLabels.title}</label>
-                <label>{vLeadFormLabels.titleMr}<input type="radio" ref="mr" onChange={this.handleChange} name="customer-title[]" /></label>
-                <label>{vLeadFormLabels.titleMrs}<input type="radio" ref="mrs" onChange={this.handleChange} name="customer-title[]" /></label>
+                <label>{vLeadFormLabels.titleMr}<input type="radio" onChange={this.handleTitleChangeMr} name="customer-title[]" /></label>
+                <label>{vLeadFormLabels.titleMrs}<input type="radio" onChange={this.handleTitleChangeMrs} name="customer-title[]" /></label>
               </div>       
               <div data-field-span="1">
                 <label style={this.state.style.firstname}>{vLeadFormLabels.firstname}</label>
