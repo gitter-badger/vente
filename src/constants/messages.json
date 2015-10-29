@@ -22,7 +22,7 @@
 			"email": "Courriel",
 			"company": "Société",
 			"address": {
-				"label": "Adresse",
+				"label": "ADRESSE",
 				"street": "Voie",
 				"zipCode": "Code Postal",
 				"city": "Ville",
