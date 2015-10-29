@@ -69,7 +69,12 @@ class LeadForm extends React.Component {
             lastname: this.refs.lastname.value,
             email: this.refs.email.value,
             company: this.refs.company.value,
-            address: this.refs.address.value,
+            address: {
+              street: this.refs.street.value,
+				      zipCode: this.refs.zipCode.value,
+				      city: this.refs.city.value,
+				      country: this.refs.country.value
+            },
             sideNote: this.refs.sideNote.value
       }
     )
@@ -95,6 +100,11 @@ class LeadForm extends React.Component {
     onChange={this.handleDatePicked} />
     this.setState({'datePicker': vDatePicker})
   }
+  
+  stopPropagation(e) {
+    e.stopPropagation()
+  }
+  
   /**
   * renders the JSX representing the add new lead form.
   * @returns {jsx}
@@ -124,7 +134,7 @@ class LeadForm extends React.Component {
               </div>
               <div data-field-span="1">
                 <label style={this.state.style.birthday}>{vLeadFormLabels.birthday}</label>
-                <div style={{position: 'fixed', minWidth: 30 + '%', height: 'auto', right: 0}}>{this.state.datePicker}</div>
+                <div onFocus={this.stopPropagation} style={{position: 'fixed', minWidth: 30 + '%', height: 'auto', right: 0}}>{this.state.datePicker}</div>
                 <input type="text" ref="birthday" onFocus={this.makeDatePickerAppear} />
               </div>
             </div>
@@ -161,7 +171,7 @@ class LeadForm extends React.Component {
                 </div>
                 <div data-field-span="1">
                   <label style={this.state.style.addressCountry}>{vLeadFormLabels.address.country}</label>
-                 <select>
+                 <select ref="country" onChange={this.handleChange}>
                     {Messages[this.state.locale].countries.map(function(i) { return <option key={i} value={i}>{i}</option>})}
                   </select>
                 </div>
@@ -199,7 +209,14 @@ React.statics = {
     lastname: React.PropTypes.string,
     email: React.PropTypes.string,
     company: React.PropTypes.string,
-    address: React.PropTypes.string,
+    address: React.PropTypes.shape(
+      {
+        street: React.PropTypes.string,
+        zipCode: React.PropTypes.string,
+        city: React.PropTypes.string,
+        country: React.PropTypes.string
+      }
+    ),
     complementaryNote: React.PropTypes.string,
     clickCallback: React.PropTypes.func.isRequired
   },
@@ -209,7 +226,12 @@ React.statics = {
     lastname: '',
     email: '',
     company: '',
-    address: '',
+    address: {
+      street: '',
+			zipCode: '',
+      city: '',
+      country: ''
+    },
     complementaryNote: ''
   }
 }
