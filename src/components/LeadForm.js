@@ -26,8 +26,7 @@ class LeadForm extends React.Component {
     this.makeDatePickerAppear = this.makeDatePickerAppear.bind(this)
     this.handleDatePicked = this.handleDatePicked.bind(this)
     this.hideDatePicker = this.hideDatePicker.bind(this)
-    this.handleTitleChangeMr = this.handleTitleChangeMr.bind(this)
-    this.handleTitleChangeMrs = this.handleTitleChangeMrs.bind(this)
+    
     
     this.state = {
       locale: 'fr-FR',
@@ -69,24 +68,21 @@ class LeadForm extends React.Component {
   }
   
   handleChange() {
-    let vOldState = Immutable.Map(this.state)
-    let vNewState = vOldState.set(
-      'lead', 
+    this.setState('lead', 
       {
-            firstname: this.refs.firstname.value,
-            lastname: this.refs.lastname.value,
-            email: this.refs.email.value,
-            company: this.refs.company.value,
-            address: {
-              street: this.refs.street.value,
-				      zipCode: this.refs.zipCode.value,
-				      city: this.refs.city.value,
-				      country: this.refs.country.value
-            },
-            sideNote: this.refs.sideNote.value
-      }
-    )
-    this.setState(vNewState.toObject())
+        title: this.state.title,
+        firstname: this.refs.firstname.value,
+        lastname: this.refs.lastname.value,
+        email: this.refs.email.value,
+        company: this.refs.company.value,
+        address: {
+          street: this.refs.street.value,
+	        zipCode: this.refs.zipCode.value,
+				  city: this.refs.city.value,
+			    country: this.refs.country.value
+        },
+        sideNote: this.refs.sideNote.value
+      })
   }
   
   handleDatePicked(e) {
@@ -113,12 +109,15 @@ class LeadForm extends React.Component {
     e.stopPropagation()
   }
   
-  handleTitleChangeMr() {
-    this.setState({'title': 'mr'})
-  }
-  
-  handleTitleChangeMrs() {
-    this.setState({'title': 'mrs'})
+  componentDidMount() {
+    
+    if(this.props.title === 'mr') {
+      this.refs.mr.checked = 'checked'
+    }
+    
+    if(this.props.title === 'mrs') {
+      this.refs.mrs.checked = 'checked'
+    }
   }
   
   /**
@@ -137,8 +136,8 @@ class LeadForm extends React.Component {
             <div data-row-span="4">
               <div data-field-span="1">
                 <label style={this.state.style.title}>{vLeadFormLabels.title}</label>
-                <label>{vLeadFormLabels.titleMr}<input type="radio" onChange={this.handleTitleChangeMr} name="customer-title[]" /></label>
-                <label>{vLeadFormLabels.titleMrs}<input type="radio" onChange={this.handleTitleChangeMrs} name="customer-title[]" /></label>
+                <label>{vLeadFormLabels.titleMr}<input type="radio" onChange={this.handleTitleChangeMr} name="customer-title[]" ref="mr"/></label>
+                <label>{vLeadFormLabels.titleMrs}<input type="radio" onChange={this.handleTitleChangeMrs} name="customer-title[]" ref="mrs"/></label>
               </div>       
               <div data-field-span="1">
                 <label style={this.state.style.firstname}>{vLeadFormLabels.firstname}</label>
@@ -238,6 +237,7 @@ React.statics = {
   },
   
   defaultProps: {
+    title: '',
     firstname: '',
     lastname: '',
     email: '',
