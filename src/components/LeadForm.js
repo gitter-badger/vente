@@ -25,6 +25,8 @@ class LeadForm extends React.Component {
     this.dataCheck = this.dataCheck.bind(this)
     this.makeDatePickerAppear = this.makeDatePickerAppear.bind(this)
     this.handleDatePicked = this.handleDatePicked.bind(this)
+    this.hideDatePicker = this.hideDatePicker.bind(this)
+
     this.state = {
       locale: 'fr-FR',
       style: {}
@@ -76,21 +78,22 @@ class LeadForm extends React.Component {
   
   handleDatePicked(e) {
     this.refs.birthday.value = e
-    let vOldState = Immutable.Map(this.state)
-    let vNewState = vOldState.set('datePicker', null)
-    this.setState(vNewState.toObject())
+    this.hideDatePicker()
   }
-    
-  makeDatePickerAppear() {
+  
+  hideDatePicker() {
+    this.setState({'datePicker': null})
+  }
+
+  makeDatePickerAppear(e) {
+    e.stopPropagation()
     let vToday = new Date()
     let vMonthNumber = vToday.getMonth() + 1
     let vTodayYYYYMMDD = vToday.getFullYear() + '-' + vMonthNumber + '-' + vToday.getDate()
     let vDatePicker = <DatePicker locale={this.state.locale} minDate='1900-01-01' maxDate= {vTodayYYYYMMDD} 
     date={vToday} 
     onChange={this.handleDatePicked} />
-    let vOldState = Immutable.Map(this.state)
-    let vNewState = vOldState.set('datePicker', vDatePicker)
-    this.setState(vNewState.toObject())
+    this.setState({'datePicker': vDatePicker})
   }
   /**
   * renders the JSX representing the add new lead form.
@@ -100,7 +103,7 @@ class LeadForm extends React.Component {
     let vLeadFormLabels = Messages[this.state.locale]
     .leadFormLabels
     return (
-      <div>
+      <div onFocus={this.hideDatePicker}>
       
       <form className="grid-form">
         <fieldset>
@@ -122,7 +125,7 @@ class LeadForm extends React.Component {
               <div data-field-span="1">
                 <label style={this.state.style.birthday}>{vLeadFormLabels.birthday}</label>
                 <div style={{position: 'fixed', width: 30 + '%', height: 'auto', right: 0}}>{this.state.datePicker}</div>
-                <input type="text" ref="birthday" onClick={this.makeDatePickerAppear} />
+                <input type="text" ref="birthday" onFocus={this.makeDatePickerAppear} />
               </div>
             </div>
             
