@@ -124,7 +124,7 @@ class LeadForm extends React.Component {
               </div>
               <div data-field-span="1">
                 <label style={this.state.style.birthday}>{vLeadFormLabels.birthday}</label>
-                <div style={{position: 'fixed', width: 30 + '%', height: 'auto', right: 0}}>{this.state.datePicker}</div>
+                <div style={{position: 'fixed', minWidth: 30 + '%', height: 'auto', right: 0}}>{this.state.datePicker}</div>
                 <input type="text" ref="birthday" onFocus={this.makeDatePickerAppear} />
               </div>
             </div>
