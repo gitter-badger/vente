@@ -4,7 +4,7 @@
   "description": "The Vente App. An App that helps sales managers to monitor the commercial activity of the Company. ",
   "main": "index.js",
   "scripts": {
-    "test": "babel-node test\run.test.js"
+    "test": "babel-node test/run.test.js"
   },
   "repository": {
     "type": "git",
