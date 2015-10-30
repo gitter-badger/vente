@@ -26,6 +26,8 @@ class LeadForm extends React.Component {
     this.makeDatePickerAppear = this.makeDatePickerAppear.bind(this)
     this.handleDatePicked = this.handleDatePicked.bind(this)
     this.hideDatePicker = this.hideDatePicker.bind(this)
+    this.handleTitleChangeMr = this.handleTitleChangeMr.bind(this)
+    this.handleTitleChangeMrs = this.handleTitleChangeMrs.bind(this)
     
     
     this.state = {
@@ -38,6 +40,8 @@ class LeadForm extends React.Component {
     
     let style = {}
     
+    console.log(this.state.title)
+
     if(!this.state.title) {
         style['title'] = { backgroundColor: '#F44336' }      
         this.setState({'style': style})
@@ -46,8 +50,8 @@ class LeadForm extends React.Component {
     
     for(let key in this.refs) {
       let success = true
-      if(!this.refs[key].value && key !== 'sideNote') {
-        style[key] = { backgroundColor: '#F44336' }      
+      if(!this.refs[key].value && key !== 'sideNote' && key !== 'mr' && key !== 'mrs') {
+        style[key] = { backgroundColor: '#F44336' }
         success = false
       }
       if(key === 'email') {
@@ -120,7 +124,15 @@ class LeadForm extends React.Component {
       this.refs.mrs.checked = 'checked'
     }
   }
+
+  handleTitleChangeMr() {
+    this.setState({'title': 'mr'})
+  }
   
+  handleTitleChangeMrs() {
+    this.setState({'title': 'mrs'})
+  }
+
   /**
   * renders the JSX representing the add new lead form.
   * @returns {jsx}
@@ -165,7 +177,7 @@ class LeadForm extends React.Component {
                 <input type="text" ref="celPhone" onChange={this.handleChange} defaultValue={this.props.celPhone} />
               </div>
               <div data-field-span="1">
-                <label style={this.state.style.email}>{vLeadFormLabels.officePhone}</label>
+                <label style={this.state.style.officePhone}>{vLeadFormLabels.officePhone}</label>
                 <input type="text" ref="officePhone" onChange={this.handleChange} defaultValue={this.props.officePhone} />
               </div>
             </div>
