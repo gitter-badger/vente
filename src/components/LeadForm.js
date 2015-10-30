@@ -68,7 +68,7 @@ class LeadForm extends React.Component {
   }
   
   handleChange() {
-    this.setState('lead', 
+    this.setState({'lead':
       {
         title: this.state.title,
         firstname: this.refs.firstname.value,
@@ -82,7 +82,8 @@ class LeadForm extends React.Component {
 			    country: this.refs.country.value
         },
         sideNote: this.refs.sideNote.value
-      })
+      }
+    })
   }
   
   handleDatePicked(e) {
