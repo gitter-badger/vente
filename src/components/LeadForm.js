@@ -8,6 +8,7 @@ import Button from '../utilityComponents/Button'
 import Immutable from 'immutable'
 import'react-date-picker/index.css'
 import DatePicker from 'react-date-picker'
+import DataCheck from '../common/DataCheck'
 /**
 * @class LeadForm
 * @author Mayas Haddad
@@ -55,8 +56,7 @@ class LeadForm extends React.Component {
         success = false
       }
       if(key === 'email') {
-        var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i
-        if(!re.test(this.refs[key].value)) {
+        if(!DataCheck.checkValidEmail(this.refs[key].value)) {
           style[key] = { backgroundColor: '#FFEB3B' }
           success = false
         }
