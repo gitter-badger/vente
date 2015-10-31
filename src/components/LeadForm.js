@@ -40,8 +40,6 @@ class LeadForm extends React.Component {
   dataCheck() {
     
     let style = {}
-    
-    console.log(this.state.title)
 
     if(!this.state.title) {
         style['title'] = { backgroundColor: '#F44336' }      
