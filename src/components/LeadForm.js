@@ -37,10 +37,17 @@ class LeadForm extends React.Component {
     }
   }
   
+  setFieldWarning(pFieldKey, pStyle) {
+    pStyle[pFieldKey] = { backgroundColor: '#FFEB3B' }
+    return false    
+  }
+  
   dataCheck() {
     
     let style = {}
-
+    
+    let vStrictNumberFields = ['budget', 'zipCode']
+    
     if(!this.state.title) {
         style['title'] = { backgroundColor: '#F44336' }      
         this.setState({'style': style})
@@ -49,15 +56,21 @@ class LeadForm extends React.Component {
     
     for(let key in this.refs) {
       let success = true
-      if(!this.refs[key].value && key !== 'sideNote' && key !== 'mr' && key !== 'mrs') {
+      let vFieldValue = this.refs[key].value
+      
+      if(!vFieldValue && key !== 'sideNote' && key !== 'mr' && key !== 'mrs') {
         style[key] = { backgroundColor: '#F44336' }
         success = false
       }
+      
       if(key === 'email') {
-        if(!DataCheck.checkValidEmail(this.refs[key].value)) {
-          style[key] = { backgroundColor: '#FFEB3B' }
-          success = false
+        if(!DataCheck.checkValidEmail(vFieldValue)) {
+          success = this.setFieldWarning(key, style)
         }
+      }
+      
+      if(vStrictNumberFields.indexOf(key) > -1 && !DataCheck.isNumeric(vFieldValue)) {
+          success = this.setFieldWarning(key, style)
       }
       
       if(!success) {
@@ -65,7 +78,8 @@ class LeadForm extends React.Component {
         return false
       }
     }
-
+    
+    this.setState({'style': {}})
     return true
   }
   
@@ -184,19 +198,19 @@ class LeadForm extends React.Component {
             <legend style={{fontFamily: 'RobotoRegular'}}>{vLeadFormLabels.address.label}</legend>
               <div data-row-span="4">
                 <div data-field-span="1">
-                  <label style={this.state.style.addressStreet}>{vLeadFormLabels.address.street}</label>
+                  <label style={this.state.style.street}>{vLeadFormLabels.address.street}</label>
                   <input type="text" ref="street" onChange={this.handleChange} defaultValue={this.props.addressStreet} />
                 </div>
                 <div data-field-span="1">
-                  <label style={this.state.style.addressZipCode}>{vLeadFormLabels.address.zipCode}</label>
+                  <label style={this.state.style.zipCode}>{vLeadFormLabels.address.zipCode}</label>
                   <input type="text" ref="zipCode" onChange={this.handleChange} defaultValue={this.props.addressZipCode} />
                 </div>
                  <div data-field-span="1">
-                  <label style={this.state.style.addressCity}>{vLeadFormLabels.address.city}</label>
+                  <label style={this.state.style.city}>{vLeadFormLabels.address.city}</label>
                   <input type="text" ref="city" onChange={this.handleChange} defaultValue={this.props.addressCity} />
                 </div>
                 <div data-field-span="1">
-                  <label style={this.state.style.addressCountry}>{vLeadFormLabels.address.country}</label>
+                  <label style={this.state.style.country}>{vLeadFormLabels.address.country}</label>
                  <select ref="country" onChange={this.handleChange}>
                     {Messages[this.state.locale].countries.map(function(i) { return <option key={i} value={i}>{i}</option>})}
                   </select>
