@@ -195,7 +195,7 @@ class LeadForm extends React.Component {
             </div>
             
             <fieldset>
-            <legend style={{fontFamily: 'RobotoRegular'}}>{vLeadFormLabels.address.label}</legend>
+            <legend style={{fontFamily: 'RobotoRegular', paddingTop: 0.3 + 'em'}}>{vLeadFormLabels.address.label}</legend>
               <div data-row-span="4">
                 <div data-field-span="1">
                   <label style={this.state.style.street}>{vLeadFormLabels.address.street}</label>
