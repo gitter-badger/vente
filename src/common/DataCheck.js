@@ -10,4 +10,15 @@ export default class DataCheck {
 	static isNumeric(pField) {
 		return  (!pField ? false : !isNaN(pField))
 	}
+
+	static isPhoneNumber(pField, pLocale) {
+		let vPhoneUtil = require('node-phonenumber').PhoneNumberUtil.getInstance() 
+		let vPhoneNumber
+		try {
+			vPhoneNumber = vPhoneUtil.parse(pField, pLocale)
+		} catch(e) {
+			return false
+		}
+		return  vPhoneUtil.isValidNumber(vPhoneNumber, pLocale)
+	}
 }

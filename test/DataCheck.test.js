@@ -48,9 +48,30 @@ var DataCheckTest = (function() {
 		console.log('testIsNumeric: ' + chalk.green('TEST OK'))
 	}
 	
+	var testIsPhoneNumber = function() {
+		
+		console.log('test for a invalid phone number: ' + chalk.yellow('alphabet'))
+		Assert(!DataCheck.isPhoneNumber('+alphabet', 'FR'))
+
+		console.log('test for a valid phone number: ' + chalk.yellow('0674328583'))
+		Assert(DataCheck.isPhoneNumber('0674328583', 'FR'))
+		
+		console.log('test for a valid phone number: ' + chalk.yellow('+33652852783'))
+		Assert(DataCheck.isPhoneNumber('+33652852783', 'FR'))
+
+		console.log('test for a valid phone number: ' + chalk.yellow('+213777301699'))
+		Assert(DataCheck.isPhoneNumber('+213777301699', 'DZ'))
+
+		console.log('test for a valid phone number: ' + chalk.yellow('202-555-5555'))
+		Assert(DataCheck.isPhoneNumber('202-555-5555', 'US'))
+		
+		console.log('testIsPhoneNumber: ' + chalk.green('TEST OK'))
+	}
+
 	var run = function() {
 		testCheckValidEmail()
 		testIsNumeric()
+		testIsPhoneNumber()
 	}
 
 	return {
