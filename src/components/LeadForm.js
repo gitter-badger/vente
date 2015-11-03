@@ -47,6 +47,7 @@ class LeadForm extends React.Component {
     let style = {}
     
     let vStrictNumberFields = ['budget', 'zipCode']
+    let vTelephoneFields = ['officePhone', 'celPhone']
     
     if(!this.state.title) {
         style['title'] = { backgroundColor: '#F44336' }      
@@ -63,12 +64,17 @@ class LeadForm extends React.Component {
         success = false
       }
       
+      
       if(key === 'email') {
         if(!DataCheck.checkValidEmail(vFieldValue)) {
           success = this.setFieldWarning(key, style)
         }
       }
       
+      if(vTelephoneFields.indexOf(key) > -1 && !DataCheck.isPhoneNumber(vFieldValue, this.refs.country.value)) {
+          success = this.setFieldWarning(key, style)
+      }
+
       if(vStrictNumberFields.indexOf(key) > -1 && !DataCheck.isNumeric(vFieldValue)) {
           success = this.setFieldWarning(key, style)
       }
