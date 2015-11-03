@@ -12,7 +12,7 @@ export default class DataCheck {
 	}
 
 	static isPhoneNumber(pField, pLocale) {
-		let vPhoneUtil = require('node-phonenumber').PhoneNumberUtil.getInstance() 
+		let vPhoneUtil = require('google-libphonenumber').PhoneNumberUtil.getInstance() 
 		let vPhoneNumber
 		try {
 			vPhoneNumber = vPhoneUtil.parse(pField, pLocale)
