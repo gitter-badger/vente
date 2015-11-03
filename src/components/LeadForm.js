@@ -212,7 +212,7 @@ class LeadForm extends React.Component {
                 <div data-field-span="1">
                   <label style={this.state.style.country}>{vLeadFormLabels.address.country}</label>
                  <select ref="country" onChange={this.handleChange}>
-                    {Messages[this.state.locale].countries.map(function(i) { return <option key={i} value={i}>{i}</option>})}
+                    {Messages[this.state.locale].countries.map(function(i) { return <option key={i.code} value={i.code}>{i.name}</option>})}
                   </select>
                 </div>
               </div>
