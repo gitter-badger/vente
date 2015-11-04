@@ -64,7 +64,6 @@ class LeadForm extends React.Component {
         success = false
       }
       
-      
       if(key === 'email') {
         if(!DataCheck.checkValidEmail(vFieldValue)) {
           success = this.setFieldWarning(key, style)
@@ -95,8 +94,12 @@ class LeadForm extends React.Component {
         title: this.state.title,
         firstname: this.refs.firstname.value,
         lastname: this.refs.lastname.value,
+        birthday: this.refs.birthday.value,
         email: this.refs.email.value,
         company: this.refs.company.value,
+        budget: this.refs.budget.value,
+        celPhone: this.refs.celPhone.value,
+        officePhone: this.refs.officePhone.value,
         address: {
           street: this.refs.street.value,
 	        zipCode: this.refs.zipCode.value,
@@ -255,6 +258,10 @@ React.statics = {
     lastname: React.PropTypes.string,
     email: React.PropTypes.string,
     company: React.PropTypes.string,
+    birthday: React.PropTypes.string,
+    budget: React.PropTypes.string,
+    celPhone: React.PropTypes.string,
+    officePhone: React.PropTypes.string,
     address: React.PropTypes.shape(
       {
         street: React.PropTypes.string,
@@ -272,7 +279,11 @@ React.statics = {
     firstname: '',
     lastname: '',
     email: '',
+    birthday: '',
     company: '',
+    budget: '',
+    celPhone: '',
+    officePhone: '',
     address: {
       street: '',
 			zipCode: '',
