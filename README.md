@@ -56,5 +56,5 @@ Vente is composed of:
 ### Underlying Technologies
 * The Desktop app is build with [Electron](http://electron.atom.io/)
 * The UI is built with [React](https://facebook.github.io/react/)/[Flux](https://facebook.github.io/flux/) architecure
-* Services are wrote in Javascript and run into [Node.js](https://nodejs.org/) (given that each service is standalone, it can be implemented using different technologies)
+* Services are written in Javascript and run into [Node.js](https://nodejs.org/) (given that each service is standalone, it can be implemented using different technologies)
 * Data is persisted in [Mongodb](https://www.mongodb.org/)/[MySql](https://www.mysql.com/) servers
