@@ -28,7 +28,7 @@ The features that are planned to be shipped in the beta of the first beta (1.0.0
 
 If you are a business, interested in the app and operate in Western Europe, please contact [me](https://github.com/MayasHaddad). I will be glad to have your feedback, (maybe support and meet your spcific requirements).
 
-If you are a dev operating on Planet Earth and want to contribute, feel free to [pull request](https://github.com/MinimalNoise/vente/pulls) after reading this.
+If you are a dev operating on Planet Earth and want to contribute, feel free to [pull request](https://github.com/MinimalNoise/vente/pulls) after reading [this](https://github.com/MinimalNoise/vente#technical-documentation).
 
 ## Business Documentation
 ### Roles System
