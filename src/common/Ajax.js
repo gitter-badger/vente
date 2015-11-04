@@ -13,14 +13,15 @@ export default class Ajax {
 	 * @param {function} pErrorCallback: the callback to be triggered after failure of the current GET
 	 */	
 	get(pUrl, pData, pSuccessCallback, pErrorCallback) {
-		var r = new XMLHttpRequest();
+		let r = new XMLHttpRequest()
 		r.open('GET', pUrl, true);
 		r.onreadystatechange = function () {
-			if (r.readyState > 2 && r.status === 200) {
-				return pSuccessCallback(r.responseText); 
-			}
-		};
-		r.send(pData);
+			return r.readyState > 2 && r.status === 200 ? 
+				pSuccessCallback(r.responseText) :
+				pErrorCallback(r.responseText)
+		}
+
+		r.send(pData)
 	}
 	
 	/**
@@ -30,14 +31,15 @@ export default class Ajax {
 	 * @param {function} pErrorCallback: the callback to be triggered after failure of the current POST
 	 */
 	post(pUrl, pContentType, pData, pSuccessCallback, pErrorCallback)	{
-		var r = new XMLHttpRequest();
-		r.open('POST', pUrl, true);
-		r.setRequestHeader('Content-type', pContentType);
+		let r = new XMLHttpRequest()
+		r.open('POST', pUrl, true)
+		r.setRequestHeader('Content-type', pContentType)
 		r.onreadystatechange = function () {
-			if (r.readyState > 3 && r.status === 200) {
-				return pSuccessCallback(r.responseText); 
-			}
-		};
-		r.send(JSON.stringify(pData));
+			return r.readyState > 3 && r.status === 200 ? 
+				pSuccessCallback(r.responseText) :
+				pErrorCallback(r.responseText)
+		}
+
+		r.send(JSON.stringify(pData))
 	}
 }
