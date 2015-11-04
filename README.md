@@ -30,7 +30,7 @@ If you are a business, interested in the app and operate in Western Europe, plea
 
 If you are a dev operating on Planet Earth and want to contribute, feel free to [pull request](https://github.com/MinimalNoise/vente/pulls) after reading this.
 
-## Business documentation
+## Business Documentation
 ### Roles System
 
 ||Admin|Sales manager|Salesman
@@ -46,3 +46,15 @@ If you are a dev operating on Planet Earth and want to contribute, feel free to 
 |Add/Update Lead||x|x|
 |Transform Lead to Client||x|x|
 |Update Client||x|x|
+
+## Technical Documentation
+### Technical Architecture
+Vente is composed of: 
+* a frontend part (Desktop, Mobile, Web apps) implemented in web technologies
+* a set of standalone business services representing the backend of the solution and collaborating through JSON REST HTTP APIs
+
+### Underlying Technologies
+* The Desktop app is build with [Electron](http://electron.atom.io/)
+* The UI is built with [React](https://facebook.github.io/react/)/[Flux](https://facebook.github.io/flux/) architecure
+* Services are wrote in Javascript and run into [Node.js](https://nodejs.org/) (given that each service is standalone, it can be implemented using different technologies)
+* Data is persisted in [Mongodb](https://www.mongodb.org/)/[MySql](https://www.mysql.com/) servers
