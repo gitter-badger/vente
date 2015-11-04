@@ -50,7 +50,7 @@ var DataCheckTest = (function() {
 	
 	var testIsPhoneNumber = function() {
 		
-		console.log('test for a invalid phone number: ' + chalk.yellow('alphabet'))
+		console.log('test for a invalid phone number: ' + chalk.yellow('+alphabet'))
 		Assert(!DataCheck.isPhoneNumber('+alphabet', 'FR'))
 
 		console.log('test for a valid phone number: ' + chalk.yellow('0674328583'))
