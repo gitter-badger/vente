@@ -1,4 +1,4 @@
-import EventEmitter from 'events'.EventEmitter
+import {EventEmitter} from 'events'
 import EventNames from '../constants/EventNames.json'
 import Dispatcher from '../dispatcher/Dispatcher.js'
 
@@ -9,6 +9,7 @@ export default Object.assign({}, EventEmitter.prototype, {
 	getMenuElements: function() {
 		return this.mMenuElements
 	}
+    
 	register: function() {
 		Dispatcher.register((pPayload) => {
 			switch(pPayload.actionType) {
