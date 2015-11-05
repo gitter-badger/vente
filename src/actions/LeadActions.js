@@ -1,6 +1,7 @@
 import Ajax from '../common/Ajax'
 import AlertsStore from '../stores/AlertsStore'
 import Config from '../constants/config.json'
+import {Natures} from 'react-material-alert'
 
 export default class LeadActions {
 	constructor() {	
