@@ -1,1 +1,2 @@
-export default new require('flux').Dispatcher()
+import {Dispatcher} from 'flux'
+export default new Dispatcher()
