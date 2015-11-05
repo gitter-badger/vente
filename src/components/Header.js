@@ -51,7 +51,7 @@ export default class Header extends React.Component {
     
     return (
       <div>
-        <Alert alert = {{nature: 1, content: 'hello'}} callback={this.closeAlert}/>
+        { this.state.sAlert }
         <a href="#/create-new-lead" >Create Lead </a>
         <a href="#/update-lead" >Update Lead</a>
       </div>
