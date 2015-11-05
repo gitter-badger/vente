@@ -3,15 +3,20 @@ import React from 'react'
 import { Router, Route, Link } from 'react-router'
 import CreateNewLead from './components/CreateNewLead'
 import UpdateLead from './components/UpdateLead'
+import Index from './components/Index'
+import Header from './components/Header'
 
 (() => {
-	var app = document.getElementById('app')
+	let app = document.getElementById('app')
 	
 	ReactDOM.render((
-	  <Router>
-	    <Route path="/create-new-lead" component={CreateNewLead}/>
-	    <Route path="/update-lead" component={UpdateLead}/>
-	    <Route path="/" component={CreateNewLead}/>
-	  </Router>
+		<div>
+			<Header />
+	  		<Router>
+				<Route path="/" component={Index}/>
+				<Route path="/create-new-lead" component={CreateNewLead}/>
+				<Route path="/update-lead" component={UpdateLead}/>
+	  		</Router>
+	  	</div>
 	), app)
 })()
