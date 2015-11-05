@@ -9,7 +9,7 @@
 
 ## What's coming?
 
-The features that are planned to be shipped in the beta of the first beta (1.0.0) are:
+The features that are planned to be shipped in the beta of the first version (1.0.0) are:
 
 1. ~~i18n: support of English and French in the UIs~~
 2. ~~Add/Update Lead~~
@@ -26,7 +26,7 @@ The features that are planned to be shipped in the beta of the first beta (1.0.0
 
 ## Want to get involved?
 
-If you are a business, interested in the app and operate in Western Europe, please contact [me](https://github.com/MayasHaddad). I will be glad to have your feedback (maybe support and meet your spcific requirements).
+If you are a business, interested in the app and operating in Western Europe, please contact [me](https://github.com/MayasHaddad). I will be glad to have your feedback (maybe support to meet your spcific requirements).
 
 If you are a dev operating on Planet Earth and want to contribute, feel free to [pull request](https://github.com/MinimalNoise/vente/pulls) after reading [this](https://github.com/MinimalNoise/vente#technical-documentation).
 
@@ -55,6 +55,6 @@ Vente is composed of:
 
 ### Underlying Technologies
 * The Desktop app is build with [Electron](http://electron.atom.io/)
-* The UI is built with [React](https://facebook.github.io/react/)/[Flux](https://facebook.github.io/flux/) architecure
+* The UI is built with [React](https://facebook.github.io/react/)/[Flux](https://facebook.github.io/flux/) architecture
 * Services are written in Javascript and run into [Node.js](https://nodejs.org/) (given that each service is standalone, it can be implemented using different technologies)
 * Data is persisted in [Mongodb](https://www.mongodb.org/)/[MySql](https://www.mysql.com/) servers
