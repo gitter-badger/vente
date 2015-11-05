@@ -4,39 +4,39 @@ import Dispatcher from '../dispatcher/Dispatcher.js'
 
 export default Object.assign({}, EventEmitter.prototype, {
     
-    mAlertMessage: {},
+    mAlertMessage: null,
     
     register: function() {
-        AppAppDispatcher.register(function(pPayload) {
+        AppAppDispatcher.register((pPayload) => {
             // reminder switch case performs a strict comparison (===)
             switch(pPayload.actionType) {
                 case EventNames.ALERT:
-                    AlertsStore.addNewAlertMessage(pPayload.alertMessages);
-                break;
+                    AlertsStore.addNewAlertMessage(pPayload.alertMessages)
+                break
             }
-        });
+        })
     },
     
     addNewAlertMessage: function(pAlertMessage) {
-        mAlertMessage = pAlertMessage;
-        this.emit(EventNames.ALERT);
+        this.mAlertMessage = pAlertMessage
+        this.emit(EventNames.ALERT)
     },    
     
     getAlertMessage: function() {
-        return mAlertMessage;
+        return this.mAlertMessage
     },
         
     /**
     * @param {function} callback
     */
     addChangeListener: function(callback) {
-        this.on(EventNames.ALERT, callback);
+        this.on(EventNames.ALERT, callback)
     },
 
     /**
     * @param {function} callback
     */
     removeChangeListener: function(callback) {
-        this.removeListener(EventNames.ALERT, callback);
+        this.removeListener(EventNames.ALERT, callback)
     }
 })
