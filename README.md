@@ -9,7 +9,7 @@
 
 ## What's coming?
 
-The features that are planned to be shipped in the beta of the first beta (1.0.0) are:
+The features that are planned to be shipped in the beta of the first version (1.0.0) are:
 
 1. ~~i18n: support of English and French in the UIs~~
 2. ~~Add/Update Lead~~
