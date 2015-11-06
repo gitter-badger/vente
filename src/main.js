@@ -10,6 +10,10 @@ import Index from './components/Index'
 	
 	ReactDOM.render((
 		<div>
+			<div>
+        		<a href="#/create-new-lead" >Create Lead </a>
+        		<a href="#/update-lead" >Update Lead</a>
+        	</div>
 			<Router>
 				<Route path="/" component={Index}/>
 				<Route path="/create-new-lead" component={CreateNewLead}/>
