@@ -52,8 +52,6 @@ export default class Header extends React.Component {
     return (
       <div>
         { this.state.sAlert }
-        <a href="#/create-new-lead" >Create Lead </a>
-        <a href="#/update-lead" >Update Lead</a>
       </div>
            )
   }
