@@ -209,19 +209,19 @@ class LeadForm extends React.Component {
                 <div data-row-span="4">
                   <div data-field-span="1">
                     <label style={this.state.style.street}>{vLeadFormLabels.address.street}</label>
-                    <input type="text" ref="street" onChange={this.handleChange} defaultValue={this.props.addressStreet} />
+                    <input type="text" ref="street" onChange={this.handleChange} defaultValue={this.props.address.street} />
                   </div>
                   <div data-field-span="1">
                     <label style={this.state.style.zipCode}>{vLeadFormLabels.address.zipCode}</label>
-                    <input type="text" ref="zipCode" onChange={this.handleChange} defaultValue={this.props.addressZipCode} />
+                    <input type="text" ref="zipCode" onChange={this.handleChange} defaultValue={this.props.address.zipCode} />
                   </div>
                   <div data-field-span="1">
                     <label style={this.state.style.city}>{vLeadFormLabels.address.city}</label>
-                    <input type="text" ref="city" onChange={this.handleChange} defaultValue={this.props.addressCity} />
+                    <input type="text" ref="city" onChange={this.handleChange} defaultValue={this.props.address.city} />
                   </div>
                   <div data-field-span="1">
                     <label style={this.state.style.country}>{vLeadFormLabels.address.country}</label>
-                  <select ref="country" onChange={this.handleChange}>
+                  <select ref="country" onChange={this.handleChange} defaultValue = {this.props.address.country}>
                       {Messages[this.state.locale].countries.map(function(i) { return <option key={i.code} value={i.code}>{i.name}</option>})}
                     </select>
                   </div>
@@ -251,8 +251,7 @@ class LeadForm extends React.Component {
   }
 }
 
-React.statics = {
-  propTypes: {
+LeadForm.propTypes = {
     formName: React.PropTypes.string.isRequired,
     submitButtonLabel: React.PropTypes.string.isRequired,
     firstname: React.PropTypes.string,
@@ -273,9 +272,9 @@ React.statics = {
     ),
     complementaryNote: React.PropTypes.string,
     clickCallback: React.PropTypes.func.isRequired
-  },
+  }
   
-  defaultProps: {
+ LeadForm.defaultProps = {
     title: '',
     firstname: '',
     lastname: '',
@@ -293,5 +292,5 @@ React.statics = {
     },
     complementaryNote: ''
   }
-}
+  
 export default LeadForm
