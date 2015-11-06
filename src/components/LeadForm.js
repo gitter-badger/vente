@@ -9,6 +9,8 @@ import Immutable from 'immutable'
 import'react-date-picker/index.css'
 import DatePicker from 'react-date-picker'
 import DataCheck from '../common/DataCheck'
+import Header from './Header'
+
 /**
 * @class LeadForm
 * @author Mayas Haddad
@@ -29,7 +31,6 @@ class LeadForm extends React.Component {
     this.hideDatePicker = this.hideDatePicker.bind(this)
     this.handleTitleChangeMr = this.handleTitleChangeMr.bind(this)
     this.handleTitleChangeMrs = this.handleTitleChangeMrs.bind(this)
-    
     
     this.state = {
       locale: 'fr-FR',
@@ -163,88 +164,88 @@ class LeadForm extends React.Component {
     .leadFormLabels
     return (
       <div onFocus={this.hideDatePicker}>
-      
-      <form className="grid-form">
-        <fieldset>
-            <legend style={{fontFamily: 'RobotoRegular'}}>{this.props.formName}</legend>
-            <div data-row-span="4">
-              <div data-field-span="1">
-                <label style={this.state.style.title}>{vLeadFormLabels.title}</label>
-                <label>{vLeadFormLabels.titleMr}<input type="radio" onChange={this.handleTitleChangeMr} name="customer-title[]" ref="mr"/></label>
-                <label>{vLeadFormLabels.titleMrs}<input type="radio" onChange={this.handleTitleChangeMrs} name="customer-title[]" ref="mrs"/></label>
-              </div>       
-              <div data-field-span="1">
-                <label style={this.state.style.firstname}>{vLeadFormLabels.firstname}</label>
-                <input type="text" ref="firstname" onChange={this.handleChange} defaultValue={this.props.firstname} />
-              </div>
-              <div data-field-span="1">
-                <label style={this.state.style.lastname}>{vLeadFormLabels.lastname}</label>
-                <input type="text" ref="lastname" onChange={this.handleChange} defaultValue={this.props.lastname} />
-              </div>
-              <div data-field-span="1">
-                <label style={this.state.style.birthday}>{vLeadFormLabels.birthday}</label>
-                <div onFocus={this.stopPropagation} style={{position: 'fixed', minWidth: 30 + '%', height: 'auto', right: 0}}>{this.state.datePicker}</div>
-                <input type="text" ref="birthday" onFocus={this.makeDatePickerAppear} />
-              </div>
-            </div>
-            
-            <div data-row-span="3">
-              <div data-field-span="1">
-                <label style={this.state.style.email}>{vLeadFormLabels.email}</label>
-                <input type="text" ref="email" onChange={this.handleChange} defaultValue={this.props.email} />
-              </div>
-              <div data-field-span="1">
-                <label style={this.state.style.celPhone}>{vLeadFormLabels.celPhone}</label>
-                <input type="text" ref="celPhone" onChange={this.handleChange} defaultValue={this.props.celPhone} />
-              </div>
-              <div data-field-span="1">
-                <label style={this.state.style.officePhone}>{vLeadFormLabels.officePhone}</label>
-                <input type="text" ref="officePhone" onChange={this.handleChange} defaultValue={this.props.officePhone} />
-              </div>
-            </div>
-            
-            <fieldset>
-            <legend style={{fontFamily: 'RobotoRegular', paddingTop: 0.3 + 'em'}}>{vLeadFormLabels.address.label}</legend>
+  			<Header />
+        <form className="grid-form">
+          <fieldset>
+              <legend style={{fontFamily: 'RobotoRegular'}}>{this.props.formName}</legend>
               <div data-row-span="4">
                 <div data-field-span="1">
-                  <label style={this.state.style.street}>{vLeadFormLabels.address.street}</label>
-                  <input type="text" ref="street" onChange={this.handleChange} defaultValue={this.props.addressStreet} />
+                  <label style={this.state.style.title}>{vLeadFormLabels.title}</label>
+                  <label>{vLeadFormLabels.titleMr}<input type="radio" onChange={this.handleTitleChangeMr} name="customer-title[]" ref="mr"/></label>
+                  <label>{vLeadFormLabels.titleMrs}<input type="radio" onChange={this.handleTitleChangeMrs} name="customer-title[]" ref="mrs"/></label>
+                </div>       
+                <div data-field-span="1">
+                  <label style={this.state.style.firstname}>{vLeadFormLabels.firstname}</label>
+                  <input type="text" ref="firstname" onChange={this.handleChange} defaultValue={this.props.firstname} />
                 </div>
                 <div data-field-span="1">
-                  <label style={this.state.style.zipCode}>{vLeadFormLabels.address.zipCode}</label>
-                  <input type="text" ref="zipCode" onChange={this.handleChange} defaultValue={this.props.addressZipCode} />
-                </div>
-                 <div data-field-span="1">
-                  <label style={this.state.style.city}>{vLeadFormLabels.address.city}</label>
-                  <input type="text" ref="city" onChange={this.handleChange} defaultValue={this.props.addressCity} />
+                  <label style={this.state.style.lastname}>{vLeadFormLabels.lastname}</label>
+                  <input type="text" ref="lastname" onChange={this.handleChange} defaultValue={this.props.lastname} />
                 </div>
                 <div data-field-span="1">
-                  <label style={this.state.style.country}>{vLeadFormLabels.address.country}</label>
-                 <select ref="country" onChange={this.handleChange}>
-                    {Messages[this.state.locale].countries.map(function(i) { return <option key={i.code} value={i.code}>{i.name}</option>})}
-                  </select>
+                  <label style={this.state.style.birthday}>{vLeadFormLabels.birthday}</label>
+                  <div onFocus={this.stopPropagation} style={{position: 'fixed', minWidth: 30 + '%', height: 'auto', right: 0}}>{this.state.datePicker}</div>
+                  <input type="text" ref="birthday" onFocus={this.makeDatePickerAppear} />
                 </div>
               </div>
-            </fieldset>
-            <div data-row-span="2">
-              <div data-field-span="1">
-                <label style={this.state.style.company}>{vLeadFormLabels.company}</label>
-                <input type="text" ref="company" onChange={this.handleChange} defaultValue={this.props.company} />
+              
+              <div data-row-span="3">
+                <div data-field-span="1">
+                  <label style={this.state.style.email}>{vLeadFormLabels.email}</label>
+                  <input type="text" ref="email" onChange={this.handleChange} defaultValue={this.props.email} />
+                </div>
+                <div data-field-span="1">
+                  <label style={this.state.style.celPhone}>{vLeadFormLabels.celPhone}</label>
+                  <input type="text" ref="celPhone" onChange={this.handleChange} defaultValue={this.props.celPhone} />
+                </div>
+                <div data-field-span="1">
+                  <label style={this.state.style.officePhone}>{vLeadFormLabels.officePhone}</label>
+                  <input type="text" ref="officePhone" onChange={this.handleChange} defaultValue={this.props.officePhone} />
+                </div>
               </div>
-              <div data-field-span="1">
-                <label style={this.state.style.budget}>{vLeadFormLabels.budget}</label>
-                <input type="text" ref="budget" onChange={this.handleChange} defaultValue={this.props.budget} />
+              
+              <fieldset>
+              <legend style={{fontFamily: 'RobotoRegular', paddingTop: 0.3 + 'em'}}>{vLeadFormLabels.address.label}</legend>
+                <div data-row-span="4">
+                  <div data-field-span="1">
+                    <label style={this.state.style.street}>{vLeadFormLabels.address.street}</label>
+                    <input type="text" ref="street" onChange={this.handleChange} defaultValue={this.props.addressStreet} />
+                  </div>
+                  <div data-field-span="1">
+                    <label style={this.state.style.zipCode}>{vLeadFormLabels.address.zipCode}</label>
+                    <input type="text" ref="zipCode" onChange={this.handleChange} defaultValue={this.props.addressZipCode} />
+                  </div>
+                  <div data-field-span="1">
+                    <label style={this.state.style.city}>{vLeadFormLabels.address.city}</label>
+                    <input type="text" ref="city" onChange={this.handleChange} defaultValue={this.props.addressCity} />
+                  </div>
+                  <div data-field-span="1">
+                    <label style={this.state.style.country}>{vLeadFormLabels.address.country}</label>
+                  <select ref="country" onChange={this.handleChange}>
+                      {Messages[this.state.locale].countries.map(function(i) { return <option key={i.code} value={i.code}>{i.name}</option>})}
+                    </select>
+                  </div>
+                </div>
+              </fieldset>
+              <div data-row-span="2">
+                <div data-field-span="1">
+                  <label style={this.state.style.company}>{vLeadFormLabels.company}</label>
+                  <input type="text" ref="company" onChange={this.handleChange} defaultValue={this.props.company} />
+                </div>
+                <div data-field-span="1">
+                  <label style={this.state.style.budget}>{vLeadFormLabels.budget}</label>
+                  <input type="text" ref="budget" onChange={this.handleChange} defaultValue={this.props.budget} />
+                </div>
               </div>
-            </div>
-            <div data-row-span="1">
-              <div data-field-span="1">
-                <label>{vLeadFormLabels.complementaryNote}</label>
-                <textarea style={{height: 10 + 'em'}} onChange={this.handleChange} ref="sideNote" defaultValue={this.props.complementaryNote}></textarea>
+              <div data-row-span="1">
+                <div data-field-span="1">
+                  <label>{vLeadFormLabels.complementaryNote}</label>
+                  <textarea style={{height: 10 + 'em'}} onChange={this.handleChange} ref="sideNote" defaultValue={this.props.complementaryNote}></textarea>
+                </div>
               </div>
-            </div>
-        </fieldset>
-        <Button label={this.props.submitButtonLabel} dataCheck={this.dataCheck} data={this.state.lead} clickCallback={this.props.clickCallback} />
-      </form>
+          </fieldset>
+          <Button label={this.props.submitButtonLabel} dataCheck={this.dataCheck} data={this.state.lead} clickCallback={this.props.clickCallback} />
+        </form>
       </div>
     )
   }
