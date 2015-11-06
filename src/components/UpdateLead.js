@@ -2,6 +2,8 @@ import React from 'react'
 import Messages from '../constants/messages.json'
 import LeadForm from './LeadForm'
 import OffScreenNavigationContent from '../utilityComponents/OffScreenNavigationContent'
+import LeadActions from '../actions/LeadActions'
+
 /**
 * @class UpdateLead
 * @author Mayas Haddad
@@ -24,16 +26,31 @@ export default class UpdateLead extends React.Component {
   render() {
     let vUpdateNewLeadMessages = Messages[this.state.locale]
          .updateLeadFormLabels
-
+         
+    let vLeadActions = new LeadActions()
+    
     let vUpdateLeadForm = <LeadForm 
             formName = { vUpdateNewLeadMessages.formName }
             firstname = "Mayas"
             lastname = "HADDAD"
             email = "mayas_91@goatmail.com"
+            birthday = "1988-10-01"
             company = "Cap"
-            address = "3 rue Molière, PARIS"
             complementaryNote = "This is the best lead so far"
-            submitButtonLabel = { vUpdateNewLeadMessages.submitButtonLabel } />
+            budget = "50000"
+            celPhone = "0687485928"
+            officePhone = "0187485928"
+            address = { 
+              { 
+                street: '3 rue toto',
+                zipCode: '75000',
+                city: 'Paris',
+                country: 'FR'
+              } 
+            }
+            submitButtonLabel = { vUpdateNewLeadMessages.submitButtonLabel }
+            clickCallback = { vLeadActions.doUpdateLead }
+     />
 
     return (
       <OffScreenNavigationContent content = { vUpdateLeadForm } />
