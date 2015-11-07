@@ -1026,6 +1026,36 @@
       ]
    },
    "en-US": {
+      "createNewLeadFormLabels": {
+      "formName": "ADD A NEW LEAD",
+      "submitButtonLabel": "ADD LEAD"
+      },
+      "updateLeadFormLabels": {
+         "formName": "UPDATE LEAD DATA",
+         "submitButtonLabel": "UPDATE"
+      },
+      "leadFormLabels": {
+         "title": "Title",
+         "titleMr": "Mr",
+         "titleMrs": "Mrs",
+         "firstname": "Firstname",
+         "lastname": "Lastname",
+         "birthday": "Date of Birth",
+         "officePhone": "Office Phone",
+         "celPhone": "Mobile Phone",
+         "email": "Email",
+         "company": "Company",
+         "address": {
+            "label": "ADDRESS",
+            "street": "Street",
+            "zipCode": "Zip Code",
+            "city": "City",
+            "country": "Country"
+         },
+         "budget": "Wallet",
+         "complementaryNote": "Complementary Notes"
+      },
+      "moveToClientButtonLabel": "UPDATE LEAD TO CLIENT",
       "countries": [
          {
             "Name": "Afghanistan",
