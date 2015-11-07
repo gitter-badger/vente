@@ -30,6 +30,7 @@ export default class UpdateLead extends React.Component {
     let vLeadActions = new LeadActions()
     
     let vUpdateLeadForm = <LeadForm 
+            title = "mr"
             formName = { vUpdateNewLeadMessages.formName }
             firstname = "Mayas"
             lastname = "HADDAD"
