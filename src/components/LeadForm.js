@@ -138,11 +138,11 @@ class LeadForm extends React.Component {
   
   componentDidMount() {
     
-    if(this.props.title === 'mr') {
+    if(this.props.lead.title === 'mr') {
       this.refs.mr.checked = 'checked'
     }
     
-    if(this.props.title === 'mrs') {
+    if(this.props.lead.title === 'mrs') {
       this.refs.mrs.checked = 'checked'
     }
   }
@@ -176,31 +176,31 @@ class LeadForm extends React.Component {
                 </div>       
                 <div data-field-span="1">
                   <label style={this.state.style.firstname}>{vLeadFormLabels.firstname}</label>
-                  <input type="text" ref="firstname" onChange={this.handleChange} defaultValue={this.props.firstname} />
+                  <input type="text" ref="firstname" onChange={this.handleChange} defaultValue={this.props.lead.firstname} />
                 </div>
                 <div data-field-span="1">
                   <label style={this.state.style.lastname}>{vLeadFormLabels.lastname}</label>
-                  <input type="text" ref="lastname" onChange={this.handleChange} defaultValue={this.props.lastname} />
+                  <input type="text" ref="lastname" onChange={this.handleChange} defaultValue={this.props.lead.lastname} />
                 </div>
                 <div data-field-span="1">
                   <label style={this.state.style.birthday}>{vLeadFormLabels.birthday}</label>
                   <div onFocus={this.stopPropagation} style={{position: 'fixed', minWidth: 30 + '%', height: 'auto', right: 0}}>{this.state.datePicker}</div>
-                  <input type="text" ref="birthday" defaultValue = { this.props.birthday } onFocus={this.makeDatePickerAppear} />
+                  <input type="text" ref="birthday" defaultValue = { this.props.lead.birthday } onFocus={this.makeDatePickerAppear} />
                 </div>
               </div>
               
               <div data-row-span="3">
                 <div data-field-span="1">
                   <label style={this.state.style.email}>{vLeadFormLabels.email}</label>
-                  <input type="text" ref="email" onChange={this.handleChange} defaultValue={this.props.email} />
+                  <input type="text" ref="email" onChange={this.handleChange} defaultValue={this.props.lead.email} />
                 </div>
                 <div data-field-span="1">
                   <label style={this.state.style.celPhone}>{vLeadFormLabels.celPhone}</label>
-                  <input type="text" ref="celPhone" onChange={this.handleChange} defaultValue={this.props.celPhone} />
+                  <input type="text" ref="celPhone" onChange={this.handleChange} defaultValue={this.props.lead.celPhone} />
                 </div>
                 <div data-field-span="1">
                   <label style={this.state.style.officePhone}>{vLeadFormLabels.officePhone}</label>
-                  <input type="text" ref="officePhone" onChange={this.handleChange} defaultValue={this.props.officePhone} />
+                  <input type="text" ref="officePhone" onChange={this.handleChange} defaultValue={this.props.lead.officePhone} />
                 </div>
               </div>
               
@@ -209,19 +209,19 @@ class LeadForm extends React.Component {
                 <div data-row-span="4">
                   <div data-field-span="1">
                     <label style={this.state.style.street}>{vLeadFormLabels.address.street}</label>
-                    <input type="text" ref="street" onChange={this.handleChange} defaultValue={this.props.address.street} />
+                    <input type="text" ref="street" onChange={this.handleChange} defaultValue={this.props.lead.address.street} />
                   </div>
                   <div data-field-span="1">
                     <label style={this.state.style.zipCode}>{vLeadFormLabels.address.zipCode}</label>
-                    <input type="text" ref="zipCode" onChange={this.handleChange} defaultValue={this.props.address.zipCode} />
+                    <input type="text" ref="zipCode" onChange={this.handleChange} defaultValue={this.props.lead.address.zipCode} />
                   </div>
                   <div data-field-span="1">
                     <label style={this.state.style.city}>{vLeadFormLabels.address.city}</label>
-                    <input type="text" ref="city" onChange={this.handleChange} defaultValue={this.props.address.city} />
+                    <input type="text" ref="city" onChange={this.handleChange} defaultValue={this.props.lead.address.city} />
                   </div>
                   <div data-field-span="1">
                     <label style={this.state.style.country}>{vLeadFormLabels.address.country}</label>
-                  <select ref="country" onChange={this.handleChange} defaultValue = {this.props.address.country}>
+                  <select ref="country" onChange={this.handleChange} defaultValue = {this.props.lead.address.country}>
                       {Messages[this.state.locale].countries.map(function(i) { return <option key={i.code} value={i.code}>{i.name}</option>})}
                     </select>
                   </div>
@@ -230,17 +230,17 @@ class LeadForm extends React.Component {
               <div data-row-span="2">
                 <div data-field-span="1">
                   <label style={this.state.style.company}>{vLeadFormLabels.company}</label>
-                  <input type="text" ref="company" onChange={this.handleChange} defaultValue={this.props.company} />
+                  <input type="text" ref="company" onChange={this.handleChange} defaultValue={this.props.lead.company} />
                 </div>
                 <div data-field-span="1">
                   <label style={this.state.style.budget}>{vLeadFormLabels.budget}</label>
-                  <input type="text" ref="budget" onChange={this.handleChange} defaultValue={this.props.budget} />
+                  <input type="text" ref="budget" onChange={this.handleChange} defaultValue={this.props.lead.budget} />
                 </div>
               </div>
               <div data-row-span="1">
                 <div data-field-span="1">
                   <label>{vLeadFormLabels.complementaryNote}</label>
-                  <textarea style={{height: 10 + 'em'}} onChange={this.handleChange} ref="sideNote" defaultValue={this.props.complementaryNote}></textarea>
+                  <textarea style={{height: 10 + 'em'}} onChange={this.handleChange} ref="sideNote" defaultValue={this.props.lead.complementaryNote}></textarea>
                 </div>
               </div>
           </fieldset>
@@ -254,43 +254,46 @@ class LeadForm extends React.Component {
 LeadForm.propTypes = {
     formName: React.PropTypes.string.isRequired,
     submitButtonLabel: React.PropTypes.string.isRequired,
-    firstname: React.PropTypes.string,
-    lastname: React.PropTypes.string,
-    email: React.PropTypes.string,
-    company: React.PropTypes.string,
-    birthday: React.PropTypes.string,
-    budget: React.PropTypes.string,
-    celPhone: React.PropTypes.string,
-    officePhone: React.PropTypes.string,
-    address: React.PropTypes.shape(
-      {
-        street: React.PropTypes.string,
-        zipCode: React.PropTypes.string,
-        city: React.PropTypes.string,
-        country: React.PropTypes.string
-      }
-    ),
-    complementaryNote: React.PropTypes.string,
+    lead: React.PropTypes.shape({
+      title: React.PropTypes.string,
+      firstname: React.PropTypes.string,
+      lastname: React.PropTypes.string,
+      email: React.PropTypes.string,
+      company: React.PropTypes.string,
+      birthday: React.PropTypes.string,
+      budget: React.PropTypes.string,
+      celPhone: React.PropTypes.string,
+      officePhone: React.PropTypes.string,
+      address: React.PropTypes.shape({
+          street: React.PropTypes.string,
+          zipCode: React.PropTypes.string,
+          city: React.PropTypes.string,
+          country: React.PropTypes.string
+      }),
+      complementaryNote: React.PropTypes.string
+    }),
     clickCallback: React.PropTypes.func.isRequired
   }
   
  LeadForm.defaultProps = {
-    title: '',
-    firstname: '',
-    lastname: '',
-    email: '',
-    birthday: '',
-    company: '',
-    budget: '',
-    celPhone: '',
-    officePhone: '',
-    address: {
-      street: '',
-			zipCode: '',
-      city: '',
-      country: ''
-    },
-    complementaryNote: ''
+   lead: {
+      title: '',
+      firstname: '',
+      lastname: '',
+      email: '',
+      birthday: '',
+      company: '',
+      budget: '',
+      celPhone: '',
+      officePhone: '',
+      address: {
+        street: '',
+        zipCode: '',
+        city: '',
+        country: ''
+      },
+      complementaryNote: ''
+    }
   }
   
 export default LeadForm

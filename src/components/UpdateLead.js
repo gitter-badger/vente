@@ -29,26 +29,28 @@ export default class UpdateLead extends React.Component {
          
     let vLeadActions = new LeadActions()
     
+    let vLead = { 
+      title: 'mr',
+      firstname: 'Mayas',
+      lastname: 'HADDAD',
+      email: 'mayas_91@goatmail.com',
+      birthday: '1988-10-01',
+      company: 'Cap',
+      complementaryNote: 'This is the best lead so far',
+      budget: '50000',
+      celPhone: '0687485928',
+      officePhone: '0187485928',
+      address: { 
+        street: '3 rue toto',
+        zipCode: '75000',
+        city: 'Paris',
+        country: 'FR'
+      }
+    }
+    
     let vUpdateLeadForm = <LeadForm 
-            title = "mr"
+            lead = { vLead }
             formName = { vUpdateNewLeadMessages.formName }
-            firstname = "Mayas"
-            lastname = "HADDAD"
-            email = "mayas_91@goatmail.com"
-            birthday = "1988-10-01"
-            company = "Cap"
-            complementaryNote = "This is the best lead so far"
-            budget = "50000"
-            celPhone = "0687485928"
-            officePhone = "0187485928"
-            address = { 
-              { 
-                street: '3 rue toto',
-                zipCode: '75000',
-                city: 'Paris',
-                country: 'FR'
-              } 
-            }
             submitButtonLabel = { vUpdateNewLeadMessages.submitButtonLabel }
             clickCallback = { vLeadActions.doUpdateLead }
      />
