@@ -13,12 +13,6 @@ export default class OffScreenNavigationMenu extends React.Component {
 		super(props)
 		this.props = props
 		
-		this.state = {
-			colorTheme: 'darkBlue'
-		}
-	}
-
-	componentDidMount() {
 	}
 
 	render() {
@@ -32,15 +26,20 @@ export default class OffScreenNavigationMenu extends React.Component {
 						float: 'left', 
 						position: 'fixed', 
 						height: 100 + '%', 
-						backgroundColor: ColorsTheme[this.state.colorTheme].menuBackground,
+						backgroundColor: ColorsTheme[this.props.theme].menuBackground,
 						animation: vAnimationName + ' ' + 1 + 's',
 						width: 20 + 'em',
 						color: 'white'
 						}}>
-					TEST
+					WELCOME TO YOUR VENTE ACCOUNT
+					<div>
+						<a href="#/create-new-lead" >Create Lead </a>
+						<a href="#/update-lead" >Update Lead</a>
+        			</div>
 	        	</div>
 	        )
 		}
+		
 		return <div></div>
 	}
 }

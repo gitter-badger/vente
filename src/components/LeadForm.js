@@ -10,7 +10,6 @@ import'react-date-picker/index.css'
 import DatePicker from 'react-date-picker'
 import DataCheck from '../common/DataCheck'
 import Header from './Header'
-import I18nStore from '../stores/I18nStore'
 
 /**
 * @class LeadForm
@@ -32,34 +31,12 @@ class LeadForm extends React.Component {
     this.hideDatePicker = this.hideDatePicker.bind(this)
     this.handleTitleChangeMr = this.handleTitleChangeMr.bind(this)
     this.handleTitleChangeMrs = this.handleTitleChangeMrs.bind(this)
-    this.updateLocale = this.updateLocale.bind(this)
 
     this.state = {
-      locale: I18nStore.getCurrentLang(),
-      style: { labels: { fontWeight: 'bold', fontSize: 'small' } }
+      style: { labels: { fontWeight: 'bold', fontSize: 'small', color: '#009688' } }
     }
   }
-  
-   /**
-    * Invoked once, only on the client (not on the server), immediately after the initial rendering occurs.
-    * It subscribes the current class to the ToReadListsListStore object providing this ladder with the updateToReadListsList callback.
-    */
-  componentDidMount() {
-    I18nStore.addChangeListener(this.updateLocale)
-  }
-    
-   /**
-   * Invoked immediately before a component is unmounted from the DOM.
-   * It unsubscribes the current class to the componentWillUnmount class providing this ladder with the updateToReadListsList callback.
-   */
-  componentWillUnmount() {
-    I18nStore.addChangeListener(this.updateLocale)
-  }
-  
-  updateLocale() {
-    this.setState({local: I18nStore.getCurrentLang()})
-  }
-  
+
   setFieldWarning(pFieldKey, pStyle) {
     pStyle[pFieldKey] = { backgroundColor: '#FFEB3B' }
     return false    
@@ -148,7 +125,7 @@ class LeadForm extends React.Component {
     let vToday = new Date()
     let vMonthNumber = vToday.getMonth() + 1
     let vTodayYYYYMMDD = vToday.getFullYear() + '-' + vMonthNumber + '-' + vToday.getDate()
-    let vDatePicker = <DatePicker locale={this.state.locale} minDate='1900-01-01' maxDate= {vTodayYYYYMMDD} 
+    let vDatePicker = <DatePicker locale={this.props.lang} minDate='1900-01-01' maxDate= {vTodayYYYYMMDD} 
     date={vToday} 
     onChange={this.handleDatePicked} />
     this.setState({'datePicker': vDatePicker})
@@ -182,7 +159,7 @@ class LeadForm extends React.Component {
   * @returns {jsx}
   */
   render() {
-    let vLeadFormLabels = Messages[this.state.locale]
+    let vLeadFormLabels = Messages[this.props.lang]
     .leadFormLabels
     return (
       <div onFocus={this.hideDatePicker}>
@@ -244,7 +221,7 @@ class LeadForm extends React.Component {
                   <div data-field-span="1">
                     <label style={this.state.style.labels}>{vLeadFormLabels.address.country}</label>
                   <select ref="country" onChange={this.handleChange} defaultValue = {this.props.lead.address.country}>
-                      {Messages[this.state.locale].countries.map(function(i) { return <option key={i.code} value={i.code}>{i.name}</option>})}
+                      {Messages[this.props.lang].countries.map(function(i) { return <option key={i.code} value={i.code}>{i.name}</option>})}
                     </select>
                   </div>
                 </div>

@@ -9,10 +9,8 @@ export default class Index extends React.Component {
   /**
   **  @name constructor
   **/
-  constructor() {
-    this.state = {
-      locale: 'fr-FR'
-    }
+  constructor(props) {
+    this.props = super(props)
   }
   
   render() {

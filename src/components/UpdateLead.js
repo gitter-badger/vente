@@ -1,9 +1,7 @@
 import React from 'react'
 import Messages from '../constants/messages.json'
 import LeadForm from './LeadForm'
-import OffScreenNavigationContent from '../utilityComponents/OffScreenNavigationContent'
 import LeadActions from '../actions/LeadActions'
-import I18nStore from '../stores/I18nStore'
 
 /**
 * @class UpdateLead
@@ -14,40 +12,16 @@ export default class UpdateLead extends React.Component {
   /*
   *  @name constructor
   */
-  constructor() {
-    this.updateLocale = this.updateLocale.bind(this)
-    this.state = {
-      locale: I18nStore.getCurrentLang()
-    }
+  constructor(props) {
+    this.props = super(props)
   }
-  
-     
-   /**
-    * Invoked once, only on the client (not on the server), immediately after the initial rendering occurs.
-    * It subscribes the current class to the ToReadListsListStore object providing this ladder with the updateToReadListsList callback.
-    */
-  componentDidMount() {
-    I18nStore.addChangeListener(this.updateLocale)
-  }
-    
-   /**
-   * Invoked immediately before a component is unmounted from the DOM.
-   * It unsubscribes the current class to the componentWillUnmount class providing this ladder with the updateToReadListsList callback.
-   */
-  componentWillUnmount() {
-    I18nStore.addChangeListener(this.updateLocale)
-  }
-  
-  updateLocale() {
-    this.setState({local: I18nStore.getCurrentLang()})
-  }
-  
+
   /**
   * renders the JSX representing the add new lead form.
   * @returns {jsx}
   */
   render() {
-    let vUpdateNewLeadMessages = Messages[this.state.locale]
+    let vUpdateNewLeadMessages = Messages[this.props.lang]
          .updateLeadFormLabels
          
     let vLeadActions = new LeadActions()
@@ -71,15 +45,12 @@ export default class UpdateLead extends React.Component {
       }
     }
     
-    let vUpdateLeadForm = <LeadForm 
+    return <LeadForm 
             lead = { vLead }
             formName = { vUpdateNewLeadMessages.formName }
             submitButtonLabel = { vUpdateNewLeadMessages.submitButtonLabel }
             clickCallback = { vLeadActions.doUpdateLead }
+            lang = { this.props.lang }
      />
-
-    return (
-      <OffScreenNavigationContent content = { vUpdateLeadForm } />
-    )
   }
 }

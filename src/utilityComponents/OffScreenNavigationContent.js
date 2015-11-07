@@ -16,7 +16,6 @@ export default class OffScreenNavigationContent extends React.Component {
     super(props)
     this.props = props
     this.state = {
-      locale: 'fr-FR',
       showMenu: 'none'
     }
     this.updateMenuState = this.updateMenuState.bind(this)
@@ -27,7 +26,6 @@ export default class OffScreenNavigationContent extends React.Component {
     (this.state.showMenu === 'in' ? 'out' : 'none'))
 
     this.setState({
-      locale: 'fr-FR',
       contentClassName: (vNextState === 'none' ? '' : 
       (vNextState === 'in' ? 'content-to-be-pushed-by-menu' : 'content-to-push-menu')),
       showMenu: vNextState
@@ -39,12 +37,13 @@ export default class OffScreenNavigationContent extends React.Component {
   * @returns {jsx}
   */
   render() {
-   return (
+    let ContentElement = this.props.route.content
+    return (
       <div>
-        <OffScreenNavigationMenu menuState={this.state.showMenu}/>
+        <OffScreenNavigationMenu menuState={this.state.showMenu} theme={this.props.route.theme} />
         <div className={this.state.contentClassName}>
           <BurgerButton clickCallback={this.updateMenuState}/>
-          { this.props.content }
+          <ContentElement lang={this.props.route.lang} theme={this.props.route.theme} />
         </div>
       </div>
     )
