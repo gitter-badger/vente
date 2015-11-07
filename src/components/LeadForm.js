@@ -10,6 +10,7 @@ import'react-date-picker/index.css'
 import DatePicker from 'react-date-picker'
 import DataCheck from '../common/DataCheck'
 import Header from './Header'
+import I18nStore from '../stores/I18nStore'
 
 /**
 * @class LeadForm
@@ -31,11 +32,32 @@ class LeadForm extends React.Component {
     this.hideDatePicker = this.hideDatePicker.bind(this)
     this.handleTitleChangeMr = this.handleTitleChangeMr.bind(this)
     this.handleTitleChangeMrs = this.handleTitleChangeMrs.bind(this)
-    
+    this.updateLocale = this.updateLocale.bind(this)
+
     this.state = {
-      locale: 'fr-FR',
+      locale: I18nStore.getCurrentLang(),
       style: {}
     }
+  }
+  
+   /**
+    * Invoked once, only on the client (not on the server), immediately after the initial rendering occurs.
+    * It subscribes the current class to the ToReadListsListStore object providing this ladder with the updateToReadListsList callback.
+    */
+  componentDidMount() {
+    I18nStore.addChangeListener(this.updateLocale)
+  }
+    
+   /**
+   * Invoked immediately before a component is unmounted from the DOM.
+   * It unsubscribes the current class to the componentWillUnmount class providing this ladder with the updateToReadListsList callback.
+   */
+  componentWillUnmount() {
+    I18nStore.addChangeListener(this.updateLocale)
+  }
+  
+  updateLocale() {
+    this.setState({local: I18nStore.getCurrentLang()})
   }
   
   setFieldWarning(pFieldKey, pStyle) {
