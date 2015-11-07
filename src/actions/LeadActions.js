@@ -15,12 +15,12 @@ export default class LeadActions {
                 function(response) {
                         AlertsStore.addNewAlertMessage({
                                 nature: Natures.SUCCESS,
-                                content: 'Great! The to-read-list has been updated!'
+                                content: 'networkSuccess.successfullyUpdatedAdded'
                         })
                 }, function(e) { 
                         AlertsStore.addNewAlertMessage({
                                 nature: Natures.FAILURE,
-                                content: 'Woops :( couldn\'t update to-read-list'
+                                content: 'networkError.couldntAddLead'
                         })
                 })
 	}
@@ -30,12 +30,12 @@ export default class LeadActions {
                 function(response) {
                         AlertsStore.addNewAlertMessage({
                                 nature: Natures.SUCCESS,
-                                content: 'Great! The to-read-list has been updated!'
+                                content: 'networkSuccess.successfullyUpdatedUpdated'
                         })
                 }, function(e) { 
                         AlertsStore.addNewAlertMessage({
                                 nature: Natures.FAILURE,
-                                content: 'Woops :( couldn\'t update to-read-list'
+                                content: 'networkError.couldntUpdateLead'
                         })
                 })
 	}

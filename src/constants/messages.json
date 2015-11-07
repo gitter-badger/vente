@@ -27,9 +27,19 @@
             "country": "Pays"
          },
          "budget": "budget",
-         "complementaryNote": "Remarques particulières"
+         "complementaryNote": "Remarques particulières",
+         "moveToClientButtonLabel": "PASSER LE PROSPECT À CLIENT"
       },
-      "moveToClientButtonLabel": "PASSER LE PROSPECT À CLIENT",
+      "alertMessages": {
+            "networkError": {
+                  "couldntAddLead": "Il y a eu un problème de réseau :( Le prospect n'a pas pue être ajouté",
+                  "couldntUpdateLead": "Il y a eu un problème de réseau :( La fiche prospect n'a pas pue être mise à jour"
+            },
+            "networkSuccess": {
+                  "successfullyAddedLead": "Le prospect a bien été ajouté",
+                  "successfullyUpdatedLead": "Le prospect a été correctement mise à jour"
+            }
+      },
       "countries": [
          {
             "name": "AFGHANISTAN",
@@ -1053,9 +1063,19 @@
             "country": "Country"
          },
          "budget": "Wallet",
-         "complementaryNote": "Complementary Notes"
+         "complementaryNote": "Complementary Notes",
+         "moveToClientButtonLabel": "UPDATE LEAD TO CLIENT"  
       },
-      "moveToClientButtonLabel": "UPDATE LEAD TO CLIENT",
+      "alertMessages": {
+            "networkError": {
+                  "couldntAddLead": "There was a network error :( Couldn't add the Lead",
+                  "couldntUpdateLead": "There was a network error :( Couldn't update the Lead"
+            },
+            "networkSuccess": {
+                  "successfullyAddedLead": "The lead has been successfully added",
+                  "successfullyUpdatedLead": "The lead has been successfully updated"
+            }
+      },
       "countries": [
          {
             "Name": "Afghanistan",
