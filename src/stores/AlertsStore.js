@@ -21,7 +21,6 @@ export default Object.assign({}, EventEmitter.prototype, {
     
     addNewAlertMessage: function(pAlertMessage) {
         this.mAlertMessage.nature = pAlertMessage.nature
-        console.log(messages[I18nStore.getCurrentLang()])
         this.mAlertMessage.content = messages[I18nStore.getCurrentLang()].alertMessages[pAlertMessage.content.split('.')[0]][pAlertMessage.content.split('.')[1]]
         this.emit(EventNames.ALERT)
     },    
