@@ -26,7 +26,7 @@ export default class LeadActions {
 	}
         
         doUpdateLead(pLeadToUpdate) {
-		this.mAjax.post(Config.updateLeadServerURL, 'application/json;charset=UTF-8', pNewLead, 
+		this.mAjax.post(Config.updateLeadServerURL, 'application/json;charset=UTF-8', pLeadToUpdate, 
                 function(response) {
                         AlertsStore.addNewAlertMessage({
                                 nature: Natures.SUCCESS,
