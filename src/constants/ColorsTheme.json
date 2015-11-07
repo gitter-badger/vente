@@ -2,6 +2,13 @@
 	"darkBlue": {
 		"menuBackground": "#1A237E",
 		"buttonColor": "#1A237E",
-		"burgerColor": "#1A237E"
-	}	
+		"burgerColor": "#1A237E",
+		"labelsColors": "#3F51B5"
+	},
+	"greenCash": {
+		"menuBackground": "#1A237E",
+		"buttonColor": "#1A237E",
+		"burgerColor": "#1A237E",
+		"labelsColors": "#009688"
+	}
 }
