@@ -1058,7 +1058,7 @@
          "address": {
             "label": "ADDRESS",
             "street": "Street",
-            "zipCode": "Zip Code",
+            "zipCode": "Zipcode",
             "city": "City",
             "country": "Country"
          },
