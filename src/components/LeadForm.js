@@ -192,7 +192,7 @@ class LeadForm extends React.Component {
     .leadFormLabels
     return (
       <div onFocus={this.hideDatePicker}>
-  			<Header />
+  			<Header lang={this.props.lang} />
         <form className="grid-form">
           <fieldset>
               <legend style={{fontFamily: 'RobotoRegular'}}>{this.props.formName}</legend>

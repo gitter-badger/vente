@@ -1,7 +1,6 @@
 import {EventEmitter} from 'events'
 import EventNames from '../constants/EventNames.json'
 import Dispatcher from '../dispatcher/Dispatcher.js'
-import I18nStore from './I18nStore'
 import messages from '../constants/messages.json'
 
 export default Object.assign({}, EventEmitter.prototype, {
@@ -21,12 +20,15 @@ export default Object.assign({}, EventEmitter.prototype, {
     
     addNewAlertMessage: function(pAlertMessage) {
         this.mAlertMessage.nature = pAlertMessage.nature
-        this.mAlertMessage.content = messages[I18nStore.getCurrentLang()].alertMessages[pAlertMessage.content.split('.')[0]][pAlertMessage.content.split('.')[1]]
+        this.mAlertMessage.content = pAlertMessage.content
         this.emit(EventNames.ALERT)
     },    
     
-    getAlertMessage: function() {
-        return this.mAlertMessage
+    getAlertMessage: function(pLang) {
+        return {
+            'nature': this.mAlertMessage.nature,
+            'content': messages[pLang].alertMessages[this.mAlertMessage.content.split('.')[0]][this.mAlertMessage.content.split('.')[1]]
+        }
     },
         
     /**

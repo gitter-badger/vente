@@ -1,6 +1,5 @@
 import React from 'react'
 import AlertsStore from '../stores/AlertsStore'
-import I18nStore from '../stores/I18nStore'
 import {Alert} from 'react-material-alert'
 
 /**
@@ -13,14 +12,11 @@ export default class Header extends React.Component {
   /**
   **  @name constructor
   **/
-  constructor() {
+  constructor(props) {
+    this.props = super(props)
     this.updateAlert = this.updateAlert.bind(this)
     this.closeAlert = this.closeAlert.bind(this)
-    this.updateLocale = this.updateLocale.bind(this)
-    
-    this.state = {
-      locale: I18nStore.getCurrentLang()
-    }
+    this.state = { sAlert: null }
   }
   
   /**
@@ -29,7 +25,6 @@ export default class Header extends React.Component {
     */
   componentDidMount() {
     AlertsStore.addChangeListener(this.updateAlert)
-    I18nStore.addChangeListener(this.updateLocale)
   }
     
    /**
@@ -38,15 +33,10 @@ export default class Header extends React.Component {
    */
   componentWillUnmount() {
     AlertsStore.removeChangeListener(this.updateAlert)
-    I18nStore.addChangeListener(this.updateLocale)
   }
   
   updateAlert() {
-    this.setState({sAlert: <Alert alert = {AlertsStore.getAlertMessage()} closeCallback={this.closeAlert}/>})
-  }
-  
-  updateLocale() {
-    this.setState({local: I18nStore.getCurrentLang()})
+    this.setState({sAlert: <Alert alert = {AlertsStore.getAlertMessage(this.props.lang)} closeCallback={this.closeAlert}/>})
   }
   
   /**
