@@ -10,15 +10,11 @@ export default class BurgerButton extends React.Component {
 	constructor(props) {
 		super(props)
 		this.props = props
-		
-		this.state = {
-			colorTheme: 'darkBlue'
-		}
 	}
 	
 	render() {
 		let vBurgerElementStyle = {
-			backgroundColor: ColorsTheme[this.state.colorTheme].burgerColor, 
+			backgroundColor: ColorsTheme[this.props.theme].burgerColor, 
 			height: 4 + 'px', 
 			marginLeft: 10 + 'px', 
 			marginTop: 4 + 'px'

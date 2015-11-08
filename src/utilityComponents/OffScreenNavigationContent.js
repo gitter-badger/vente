@@ -42,7 +42,7 @@ export default class OffScreenNavigationContent extends React.Component {
       <div>
         <OffScreenNavigationMenu menuState={this.state.showMenu} theme={this.props.route.theme} />
         <div className={this.state.contentClassName}>
-          <BurgerButton clickCallback={this.updateMenuState}/>
+          <BurgerButton clickCallback={this.updateMenuState} theme={this.props.route.theme} />
           <ContentElement lang={this.props.route.lang} theme={this.props.route.theme} />
         </div>
       </div>
