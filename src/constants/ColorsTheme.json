@@ -6,9 +6,9 @@
 		"labelsColors": "#3F51B5"
 	},
 	"greenCash": {
-		"menuBackground": "#1A237E",
-		"buttonColor": "#1A237E",
-		"burgerColor": "#1A237E",
+		"menuBackground": "#00695C",
+		"buttonColor": "#004D40",
+		"burgerColor": "#004D40",
 		"labelsColors": "#009688"
 	}
 }
