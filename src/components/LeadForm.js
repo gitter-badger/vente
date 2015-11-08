@@ -10,6 +10,7 @@ import'react-date-picker/index.css'
 import DatePicker from 'react-date-picker'
 import DataCheck from '../common/DataCheck'
 import Header from './Header'
+import ColorsTheme from '../constants/ColorsTheme.json'
 
 /**
 * @class LeadForm
@@ -31,26 +32,49 @@ class LeadForm extends React.Component {
     this.hideDatePicker = this.hideDatePicker.bind(this)
     this.handleTitleChangeMr = this.handleTitleChangeMr.bind(this)
     this.handleTitleChangeMrs = this.handleTitleChangeMrs.bind(this)
-
+    
+    
     this.state = {
-      style: { labels: { fontWeight: 'bold', fontSize: 'small', color: '#009688' } }
+      style: this.getDefaultLabelStyles(),
+      spanStyle: {}
     }
   }
-
+  
+  getDefaultLabelStyles() {
+    let vDefaultLabelStyle = new Immutable.Map({ fontWeight: 'bold', fontSize: 'small', color: ColorsTheme[this.props.theme].labelsColors })
+ 
+    return  { 
+         'title': vDefaultLabelStyle.toObject(),
+         'firstname': vDefaultLabelStyle.toObject(),
+         'lastname': vDefaultLabelStyle.toObject(),
+         'birthday': vDefaultLabelStyle.toObject(),
+         'email': vDefaultLabelStyle.toObject(),
+         'celPhone': vDefaultLabelStyle.toObject(),
+         'officePhone': vDefaultLabelStyle.toObject(),
+         'street': vDefaultLabelStyle.toObject(),
+         'zipCode': vDefaultLabelStyle.toObject(),
+         'city': vDefaultLabelStyle.toObject(),
+         'company': vDefaultLabelStyle.toObject(),
+         'country': vDefaultLabelStyle.toObject(),
+         'budget': vDefaultLabelStyle.toObject(),
+         'complementaryNote': vDefaultLabelStyle.toObject()
+      }
+  }
+  
   setFieldWarning(pFieldKey, pStyle) {
-    pStyle[pFieldKey] = { backgroundColor: '#FFEB3B' }
-    return false    
+    pStyle[pFieldKey].backgroundColor = '#FFEB3B'
   }
   
   dataCheck() {
     
-    let style = {}
-    
+    let style = this.getDefaultLabelStyles()
+      
     let vStrictNumberFields = ['budget', 'zipCode']
     let vTelephoneFields = ['officePhone', 'celPhone']
     
     if(!this.state.title) {
-        style['title'] = { backgroundColor: '#F44336' }      
+        style['title'].backgroundColor = '#F44336'
+        style['title'].color = 'white'      
         this.setState({'style': style})
         return false
     }
@@ -60,31 +84,35 @@ class LeadForm extends React.Component {
       let vFieldValue = this.refs[key].value
       
       if(!vFieldValue && key !== 'sideNote' && key !== 'mr' && key !== 'mrs') {
-        style[key] = { backgroundColor: '#F44336' }
-        success = false
+        style[key].backgroundColor = '#F44336'
+        style[key].color = 'white'      
+        this.setState({'style': style})
+        return false
       }
       
       if(key === 'email') {
         if(!DataCheck.checkValidEmail(vFieldValue)) {
-          success = this.setFieldWarning(key, style)
+          this.setFieldWarning(key, style)
+          this.setState({'style': style})
+          return false
         }
       }
       
       if(vTelephoneFields.indexOf(key) > -1 && !DataCheck.isPhoneNumber(vFieldValue, this.refs.country.value)) {
-          success = this.setFieldWarning(key, style)
+          this.setFieldWarning(key, style)
+          this.setState({'style': style})
+          return false
       }
 
       if(vStrictNumberFields.indexOf(key) > -1 && !DataCheck.isNumeric(vFieldValue)) {
-          success = this.setFieldWarning(key, style)
+          this.setFieldWarning(key, style)          
+          this.setState({'style': style})
+          return false
       }
-      
-      if(!success) {
-        this.setState({'style': style})
-        return false
-      }
+    
     }
     
-    this.setState({'style': {}})
+    this.setState({'style': this.getDefaultLabelStyles()})
     return true
   }
   
@@ -169,20 +197,20 @@ class LeadForm extends React.Component {
               <legend style={{fontFamily: 'RobotoRegular'}}>{this.props.formName}</legend>
               <div data-row-span="4">
                 <div data-field-span="1">
-                  <label style={this.state.style.labels}>{vLeadFormLabels.title}</label>
+                  <label style={this.state.style.title}>{vLeadFormLabels.title}</label>
                   <label>{vLeadFormLabels.titleMr}<input type="radio" onChange={this.handleTitleChangeMr} name="customer-title[]" ref="mr"/></label>
                   <label>{vLeadFormLabels.titleMrs}<input type="radio" onChange={this.handleTitleChangeMrs} name="customer-title[]" ref="mrs"/></label>
                 </div>       
                 <div data-field-span="1">
-                  <label style={this.state.style.labels}>{vLeadFormLabels.firstname}</label>
+                  <label style={this.state.style.firstname}>{vLeadFormLabels.firstname}</label>
                   <input type="text" ref="firstname" onChange={this.handleChange} defaultValue={this.props.lead.firstname} />
                 </div>
                 <div data-field-span="1">
-                  <label style={this.state.style.labels}>{vLeadFormLabels.lastname}</label>
+                  <label style={this.state.style.lastname}>{vLeadFormLabels.lastname}</label>
                   <input type="text" ref="lastname" onChange={this.handleChange} defaultValue={this.props.lead.lastname} />
                 </div>
                 <div data-field-span="1">
-                  <label style={this.state.style.labels}>{vLeadFormLabels.birthday}</label>
+                  <label style={this.state.style.birthday}>{vLeadFormLabels.birthday}</label>
                   <div onFocus={this.stopPropagation} style={{position: 'fixed', minWidth: 30 + '%', height: 'auto', right: 0}}>{this.state.datePicker}</div>
                   <input type="text" ref="birthday" defaultValue = { this.props.lead.birthday } onFocus={this.makeDatePickerAppear} />
                 </div>
@@ -190,15 +218,15 @@ class LeadForm extends React.Component {
               
               <div data-row-span="3">
                 <div data-field-span="1">
-                  <label style={this.state.style.labels}>{vLeadFormLabels.email}</label>
+                  <label style={this.state.style.email}>{vLeadFormLabels.email}</label>
                   <input type="text" ref="email" onChange={this.handleChange} defaultValue={this.props.lead.email} />
                 </div>
                 <div data-field-span="1">
-                  <label style={this.state.style.labels}>{vLeadFormLabels.celPhone}</label>
+                  <label style={this.state.style.celPhone}>{vLeadFormLabels.celPhone}</label>
                   <input type="text" ref="celPhone" onChange={this.handleChange} defaultValue={this.props.lead.celPhone} />
                 </div>
                 <div data-field-span="1">
-                  <label style={this.state.style.labels}>{vLeadFormLabels.officePhone}</label>
+                  <label style={this.state.style.officePhone}>{vLeadFormLabels.officePhone}</label>
                   <input type="text" ref="officePhone" onChange={this.handleChange} defaultValue={this.props.lead.officePhone} />
                 </div>
               </div>
@@ -207,19 +235,19 @@ class LeadForm extends React.Component {
               <legend style={{fontFamily: 'RobotoRegular', paddingTop: 0.3 + 'em'}}>{vLeadFormLabels.address.label}</legend>
                 <div data-row-span="4">
                   <div data-field-span="1">
-                    <label style={this.state.style.labels}>{vLeadFormLabels.address.street}</label>
+                    <label style={this.state.style.street}>{vLeadFormLabels.address.street}</label>
                     <input type="text" ref="street" onChange={this.handleChange} defaultValue={this.props.lead.address.street} />
                   </div>
                   <div data-field-span="1">
-                    <label style={this.state.style.labels}>{vLeadFormLabels.address.zipCode}</label>
+                    <label style={this.state.style.zipCode}>{vLeadFormLabels.address.zipCode}</label>
                     <input type="text" ref="zipCode" onChange={this.handleChange} defaultValue={this.props.lead.address.zipCode} />
                   </div>
                   <div data-field-span="1">
-                    <label style={this.state.style.labels}>{vLeadFormLabels.address.city}</label>
+                    <label style={this.state.style.city}>{vLeadFormLabels.address.city}</label>
                     <input type="text" ref="city" onChange={this.handleChange} defaultValue={this.props.lead.address.city} />
                   </div>
                   <div data-field-span="1">
-                    <label style={this.state.style.labels}>{vLeadFormLabels.address.country}</label>
+                    <label style={this.state.style.country}>{vLeadFormLabels.address.country}</label>
                   <select ref="country" onChange={this.handleChange} defaultValue = {this.props.lead.address.country}>
                       {Messages[this.props.lang].countries.map(function(i) { return <option key={i.code} value={i.code}>{i.name}</option>})}
                     </select>
@@ -228,17 +256,17 @@ class LeadForm extends React.Component {
               </fieldset>
               <div data-row-span="2">
                 <div data-field-span="1">
-                  <label style={this.state.style.labels}>{vLeadFormLabels.company}</label>
+                  <label style={this.state.style.company}>{vLeadFormLabels.company}</label>
                   <input type="text" ref="company" onChange={this.handleChange} defaultValue={this.props.lead.company} />
                 </div>
                 <div data-field-span="1">
-                  <label style={this.state.style.labels}>{vLeadFormLabels.budget}</label>
+                  <label style={this.state.style.budget}>{vLeadFormLabels.budget}</label>
                   <input type="text" ref="budget" onChange={this.handleChange} defaultValue={this.props.lead.budget} />
                 </div>
               </div>
               <div data-row-span="1">
                 <div data-field-span="1">
-                  <label  style={this.state.style.labels}>{vLeadFormLabels.complementaryNote}</label>
+                  <label  style={this.state.style.complementaryNote}>{vLeadFormLabels.complementaryNote}</label>
                   <textarea style={{height: 10 + 'em'}} onChange={this.handleChange} ref="sideNote" defaultValue={this.props.lead.complementaryNote}></textarea>
                 </div>
               </div>
