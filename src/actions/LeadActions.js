@@ -13,10 +13,15 @@ export default class LeadActions {
 	doAddLead(pNewLead) {
 		this.mAjax.post(Config.persistLeadServerURL, 'application/json;charset=UTF-8', pNewLead, 
                 function(response) {
-                        AlertsStore.addNewAlertMessage({
-                                nature: Natures.SUCCESS,
-                                content: 'networkSuccess.successfullyUpdatedAdded'
-                        })
+                        (JSON.parse(response).success === true ?
+                                AlertsStore.addNewAlertMessage({
+                                        nature: Natures.SUCCESS,
+                                        content: 'networkSuccess.successfullyAddedLead'
+                                }) :
+                                AlertsStore.addNewAlertMessage({
+                                        nature: Natures.FAILURE,
+                                        content: 'collisionError.aLeadWithTheSameEmailExists'
+                                }))
                 }, function(e) { 
                         AlertsStore.addNewAlertMessage({
                                 nature: Natures.FAILURE,
@@ -28,10 +33,15 @@ export default class LeadActions {
         doUpdateLead(pLeadToUpdate) {
 		this.mAjax.post(Config.updateLeadServerURL, 'application/json;charset=UTF-8', pLeadToUpdate, 
                 function(response) {
-                        AlertsStore.addNewAlertMessage({
-                                nature: Natures.SUCCESS,
-                                content: 'networkSuccess.successfullyUpdatedUpdated'
-                        })
+                        JSON.parse(response).success === true ?
+                                AlertsStore.addNewAlertMessage({
+                                        nature: Natures.SUCCESS,
+                                        content: 'networkSuccess.successfullyUpdatedLead'
+                        }) :
+                                AlertsStore.addNewAlertMessage({
+                                        nature: Natures.FAILURE,
+                                        content: 'collisionError.aLeadWithTheSameEmailExists'
+                                })
                 }, function(e) { 
                         AlertsStore.addNewAlertMessage({
                                 nature: Natures.FAILURE,
