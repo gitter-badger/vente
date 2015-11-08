@@ -32,6 +32,7 @@ export default class CreateNewLead extends React.Component {
         submitButtonLabel = { vCreateNewLeadMessages.submitButtonLabel } 
         clickCallback = { vLeadActions.doAddLead }
         lang = { this.props.lang } 
+        theme = { this.props.theme }
             />
   }
 }
