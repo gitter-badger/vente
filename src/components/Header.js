@@ -42,7 +42,7 @@ export default class Header extends React.Component {
   }
   
   updateAlert() {
-    this.setState({sAlert: <Alert alert = {AlertsStore.getAlertMessage()} callback={this.closeAlert}/>})
+    this.setState({sAlert: <Alert alert = {AlertsStore.getAlertMessage()} closeCallback={this.closeAlert}/>})
   }
   
   updateLocale() {
