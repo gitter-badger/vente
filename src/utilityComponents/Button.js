@@ -20,11 +20,10 @@ export default class Button extends React.Component {
     this.showShadow = this.showShadow.bind(this)
     this.hideShadow = this.hideShadow.bind(this)
     this.handleClick = this.handleClick.bind(this)
-    let vColorTheme = 'darkBlue'
     
     this.mButtonStyle = {
       fontFamily: 'RobotoRegular', 
-      backgroundColor: ColorsTheme[vColorTheme].buttonColor, 
+      backgroundColor: ColorsTheme[this.props.theme].buttonColor, 
       borderRadius: 1 + 'px', 
       height: 30 + 'px',
       padding: 5 + 'px',
@@ -38,7 +37,6 @@ export default class Button extends React.Component {
     }
 
     this.state = { 
-      colorTheme: vColorTheme,
       style: this.mButtonStyle 
     }
   }
@@ -49,8 +47,7 @@ export default class Button extends React.Component {
     let newStyle = oldStyle.set('boxShadow', 0 + 'px ' + 0 + 'px ' + 10 + 'px ' + '#888888')
     
     this.setState({
-      style: newStyle.toObject(),
-      colorTheme: this.state.colorTheme
+      style: newStyle.toObject()
     })
   }
   
@@ -60,8 +57,7 @@ export default class Button extends React.Component {
     let newStyle = oldStyle.remove('boxShadow')
     
     this.setState({
-      style: newStyle.toObject(),
-      colorTheme: this.state.colorTheme
+      style: newStyle.toObject()
     })
   }
   

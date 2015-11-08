@@ -271,7 +271,7 @@ class LeadForm extends React.Component {
                 </div>
               </div>
           </fieldset>
-          <Button label={this.props.submitButtonLabel} dataCheck={this.dataCheck} data={this.state.lead} clickCallback={this.props.clickCallback} />
+          <Button label={this.props.submitButtonLabel} dataCheck={this.dataCheck} data={this.state.lead} clickCallback={this.props.clickCallback} theme={this.props.theme} />
         </form>
       </div>
     )
