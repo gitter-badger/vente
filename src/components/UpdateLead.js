@@ -51,6 +51,7 @@ export default class UpdateLead extends React.Component {
             submitButtonLabel = { vUpdateNewLeadMessages.submitButtonLabel }
             clickCallback = { vLeadActions.doUpdateLead }
             lang = { this.props.lang }
+            theme = { this.props.theme }
      />
   }
 }
