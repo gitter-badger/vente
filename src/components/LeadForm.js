@@ -35,8 +35,7 @@ class LeadForm extends React.Component {
     
     
     this.state = {
-      style: this.getDefaultLabelStyles(),
-      spanStyle: {}
+      style: this.getDefaultLabelStyles()
     }
   }
   
