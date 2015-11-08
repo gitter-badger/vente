@@ -38,6 +38,9 @@
             "networkSuccess": {
                   "successfullyAddedLead": "Le prospect a bien été ajouté",
                   "successfullyUpdatedLead": "Le prospect a été correctement mise à jour"
+            },
+            "collisionError": {
+                  "aLeadWithTheSameEmailExists": "Un prospect avec la même adresse mail existe déjà"
             }
       },
       "countries": [
@@ -1074,6 +1077,9 @@
             "networkSuccess": {
                   "successfullyAddedLead": "The lead has been successfully added",
                   "successfullyUpdatedLead": "The lead has been successfully updated"
+            },
+            "collisionError": {
+                  "aLeadWithTheSameEmailExists": "A Lead already exists with this email address"
             }
       },
       "countries": [
