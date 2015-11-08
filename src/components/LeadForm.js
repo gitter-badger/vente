@@ -133,7 +133,7 @@ class LeadForm extends React.Component {
 				  city: this.refs.city.value,
 			    country: this.refs.country.value
         },
-        sideNote: this.refs.sideNote.value
+        complementaryNote: this.refs.sideNote.value
       }
     })
   }
@@ -163,6 +163,10 @@ class LeadForm extends React.Component {
   }
   
   componentDidMount() {
+    
+    if(this.props.lead) {
+      this.setState({ lead : this.props.lead })
+    }
     
     if(this.props.lead.title === 'mr') {
       this.refs.mr.checked = 'checked'
