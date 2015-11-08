@@ -166,10 +166,12 @@ class LeadForm extends React.Component {
     
     if(this.props.lead.title === 'mr') {
       this.refs.mr.checked = 'checked'
+      this.handleTitleChangeMr()
     }
     
     if(this.props.lead.title === 'mrs') {
       this.refs.mrs.checked = 'checked'
+      this.handleTitleChangeMrs()
     }
   }
 
