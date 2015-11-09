@@ -13,15 +13,23 @@ export default class LeadActions {
 	doAddLead(pNewLead) {
 		this.mAjax.post(Config.persistLeadServerURL, 'application/json;charset=UTF-8', pNewLead, 
                 function(response) {
-                        (JSON.parse(response).success === true ?
+                        const vResponse = JSON.parse(response)
+                        if(vResponse.success === true) {
                                 AlertsStore.addNewAlertMessage({
                                         nature: Natures.SUCCESS,
                                         content: 'networkSuccess.successfullyAddedLead'
+                                })
+                        } else {
+                                vResponse.statusCode ? 
+                                AlertsStore.addNewAlertMessage({
+                                        nature: Natures.FAILURE,
+                                        content: 'statusCodes.' + vResponse.statusCode
                                 }) :
                                 AlertsStore.addNewAlertMessage({
                                         nature: Natures.FAILURE,
-                                        content: 'collisionError.aLeadWithTheSameEmailExists'
-                                }))
+                                        content: 'statusCodes.UNKNOWN_ERROR'
+                                })
+                        }
                 }, function(e) { 
                         AlertsStore.addNewAlertMessage({
                                 nature: Natures.FAILURE,
@@ -33,15 +41,23 @@ export default class LeadActions {
         doUpdateLead(pLeadToUpdate) {
 		this.mAjax.post(Config.updateLeadServerURL, 'application/json;charset=UTF-8', pLeadToUpdate, 
                 function(response) {
-                        JSON.parse(response).success === true ?
+                        const vResponse = JSON.parse(response)
+                        if(vResponse.success === true) {
                                 AlertsStore.addNewAlertMessage({
                                         nature: Natures.SUCCESS,
                                         content: 'networkSuccess.successfullyUpdatedLead'
-                        }) :
+                                })
+                        } else {
+                                vResponse.statusCode ? 
                                 AlertsStore.addNewAlertMessage({
                                         nature: Natures.FAILURE,
-                                        content: 'collisionError.aLeadWithTheSameEmailExists'
+                                        content: 'statusCodes.' + vResponse.statusCode
+                                }) :
+                                AlertsStore.addNewAlertMessage({
+                                        nature: Natures.FAILURE,
+                                        content: 'statusCodes.UNKNOWN_ERROR'
                                 })
+                        }
                 }, function(e) { 
                         AlertsStore.addNewAlertMessage({
                                 nature: Natures.FAILURE,

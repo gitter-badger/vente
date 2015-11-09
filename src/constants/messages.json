@@ -39,8 +39,9 @@
                   "successfullyAddedLead": "Le prospect a bien été ajouté",
                   "successfullyUpdatedLead": "Le prospect a été correctement mise à jour"
             },
-            "collisionError": {
-                  "aLeadWithTheSameEmailExists": "Un prospect avec la même adresse mail existe déjà"
+            "statusCodes": {
+                  "MANDATORY_FIELDS_MISSING": "Champ obligatoire manquant",
+                  "UNKNOWN_ERROR": "Une erreur inconnue s'est produite au niveau du serveur"
             }
       },
       "countries": [
@@ -1078,8 +1079,9 @@
                   "successfullyAddedLead": "The lead has been successfully added",
                   "successfullyUpdatedLead": "The lead has been successfully updated"
             },
-            "collisionError": {
-                  "aLeadWithTheSameEmailExists": "A Lead already exists with this email address"
+            "statusCodes": {
+                  "MANDATORY_FIELDS_MISSING": "Mandatory field(s) missing",
+                  "UNKNOWN_ERROR": "An unknown error occurred server side"
             }
       },
       "countries": [
