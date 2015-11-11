@@ -17,7 +17,9 @@ export default class OffScreenNavigationMenu extends React.Component {
 
 	render() {
 		let vAnimationName = this.props.menuState === 'out' ? 'menuout' : 'menuin'
-
+		
+		const vListElementStyle = {color: 'white', textDecoration: 'none'}
+		
 		if(this.props.menuState !== 'none') {
 			return (
 				<div 
@@ -32,10 +34,11 @@ export default class OffScreenNavigationMenu extends React.Component {
 						color: 'white'
 						}}>
 					WELCOME TO YOUR VENTE ACCOUNT
-					<div>
-						<a href="#/create-new-lead" >Create Lead </a>
-						<a href="#/update-lead" >Update Lead</a>
-        			</div>
+					<ul>
+						<li><a style={vListElementStyle} href="#/" >Dashbord </a></li>
+						<li><a style={vListElementStyle} href="#/create-new-lead" >Create Lead </a></li>
+						<li><a style={vListElementStyle} href="#/update-lead" >Update Lead</a></li>
+        			</ul>
 	        	</div>
 	        )
 		}
