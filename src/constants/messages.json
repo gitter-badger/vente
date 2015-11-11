@@ -45,6 +45,12 @@
                   "DUPLICATE_EMAIL_ENTRY": "<span style=\" font-size: large; color: white;\">Un prospect avec la même adresse mail existe déjà</span>",
                   "DUPLICATE_CELPHONE_ENTRY": "<span style=\" font-size: large; color: white;\">Un prosect avec le même numéro de mobile existe déjà</span>",
                   "NO_FIELD_UPDATED": "Vous n'avez mis à jour aucun champ"
+            }, 
+            "dataCheck": {
+                  "fieldMissing": "<span style=\" font-size: large; color: white;\">Ce champ est obligatoire</span>",
+                  "invalidEmail": "Assurez-vous que l'email est correct (Ex: valid@example.com)",
+                  "invalidTelephone": "Le numéro de téléphone entré est érroné par rapport au pays fourni",
+                  "invalidNumber": "Le champ doit être strictement un nombre"
             }
       },
       "countries": [
@@ -1088,6 +1094,12 @@
                   "DUPLICATE_EMAIL_ENTRY": "<span style=\" font-size: large; color: white;\">A Lead with the same email already exists</span>",
                   "DUPLICATE_CELPHONE_ENTRY": "<span style=\" font-size: large; color: white;\">A Lead with the same mobile phone number already exists</span>",
                   "NO_FIELD_UPDATED": "No field updated"
+            }, 
+            "dataCheck": {
+                  "fieldMissing": "<span style=\" font-size: large; color: white;\">This field must be filled</span>",
+                  "invalidEmail": "Please make sure email is correctly formed (E.g. valid@example.com)",
+                  "invalidTelephone": "The phone number is invalid for the provided country",
+                  "invalidNumber": "The field must be a strict number"
             }
       },
       "countries": [

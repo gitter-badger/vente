@@ -11,6 +11,7 @@ import DatePicker from 'react-date-picker'
 import DataCheck from '../common/DataCheck'
 import Header from './Header'
 import ColorsTheme from '../constants/ColorsTheme.json'
+import AlertActions from '../actions/AlertActions'
 
 /**
 * @class LeadForm
@@ -65,7 +66,6 @@ class LeadForm extends React.Component {
   }
   
   dataCheck() {
-    
     let style = this.getDefaultLabelStyles()
       
     let vStrictNumberFields = ['budget', 'zipCode']
@@ -75,6 +75,7 @@ class LeadForm extends React.Component {
         style['title'].backgroundColor = '#F44336'
         style['title'].color = 'white'      
         this.setState({'style': style})
+        AlertActions.doAlertFailure('dataCheck.fieldMissing')
         return false
     }
     
@@ -86,6 +87,7 @@ class LeadForm extends React.Component {
         style[key].backgroundColor = '#F44336'
         style[key].color = 'white'      
         this.setState({'style': style})
+        AlertActions.doAlertFailure('dataCheck.fieldMissing')
         return false
       }
       
@@ -93,6 +95,7 @@ class LeadForm extends React.Component {
         if(!DataCheck.checkValidEmail(vFieldValue)) {
           this.setFieldWarning(key, style)
           this.setState({'style': style})
+          AlertActions.doAlertWarning('dataCheck.invalidEmail')
           return false
         }
       }
@@ -100,12 +103,14 @@ class LeadForm extends React.Component {
       if(vTelephoneFields.indexOf(key) > -1 && !DataCheck.isPhoneNumber(vFieldValue, this.refs.country.value)) {
           this.setFieldWarning(key, style)
           this.setState({'style': style})
+          AlertActions.doAlertWarning('dataCheck.invalidTelephone')
           return false
       }
 
       if(vStrictNumberFields.indexOf(key) > -1 && !DataCheck.isNumeric(vFieldValue)) {
-          this.setFieldWarning(key, style)          
+          this.setFieldWarning(key, style)
           this.setState({'style': style})
+          AlertActions.doAlertWarning('dataCheck.invalidNumber')
           return false
       }
     
