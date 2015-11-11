@@ -40,10 +40,10 @@
                   "successfullyUpdatedLead": "Le prospect a été correctement mise à jour"
             },
             "statusCodes": {
-                  "MANDATORY_FIELDS_MISSING": "Champ obligatoire manquant",
-                  "UNKNOWN_ERROR": "Une erreur inconnue s'est produite au niveau du serveur",
-                  "DUPLICATE_EMAIL_ENTRY": "Un prospect avec la même adresse mail existe déjà",
-                  "DUPLICATE_CELPHONE_ENTRY": "Un prosect avec le même numéro de mobile existe déjà"
+                  "MANDATORY_FIELDS_MISSING": "<span style=\" font-size: large; color: white;\">Champ obligatoire manquant</span>",
+                  "UNKNOWN_ERROR": "<span style=\" font-size: large; color: white;\">Une erreur inconnue s'est produite au niveau du serveur</span>",
+                  "DUPLICATE_EMAIL_ENTRY": "<span style=\" font-size: large; color: white;\">Un prospect avec la même adresse mail existe déjà</span>",
+                  "DUPLICATE_CELPHONE_ENTRY": "<span style=\" font-size: large; color: white;\">Un prosect avec le même numéro de mobile existe déjà</span>"
             }
       },
       "countries": [
@@ -1082,10 +1082,10 @@
                   "successfullyUpdatedLead": "The lead has been successfully updated"
             },
             "statusCodes": {
-                  "MANDATORY_FIELDS_MISSING": "Mandatory field(s) missing",
-                  "UNKNOWN_ERROR": "An unknown error occurred server side",
-                  "DUPLICATE_EMAIL_ENTRY": "A Lead with the same email already exists",
-                  "DUPLICATE_CELPHONE_ENTRY": "A Lead with the same mobile phone number already exists"
+                  "MANDATORY_FIELDS_MISSING": "<span style=\" font-size: large; color: white;\">Mandatory field(s) missing</span>",
+                  "UNKNOWN_ERROR": "<span style=\" font-size: large; color: white;\">An unknown error occurred server side</span>",
+                  "DUPLICATE_EMAIL_ENTRY": "<span style=\" font-size: large; color: white;\">A Lead with the same email already exists</span>",
+                  "DUPLICATE_CELPHONE_ENTRY": "<span style=\" font-size: large; color: white;\">A Lead with the same mobile phone number already exists</span>"
             }
       },
       "countries": [
