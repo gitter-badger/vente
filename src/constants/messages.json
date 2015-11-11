@@ -43,7 +43,8 @@
                   "MANDATORY_FIELDS_MISSING": "<span style=\" font-size: large; color: white;\">Champ obligatoire manquant</span>",
                   "UNKNOWN_ERROR": "<span style=\" font-size: large; color: white;\">Une erreur inconnue s'est produite au niveau du serveur</span>",
                   "DUPLICATE_EMAIL_ENTRY": "<span style=\" font-size: large; color: white;\">Un prospect avec la même adresse mail existe déjà</span>",
-                  "DUPLICATE_CELPHONE_ENTRY": "<span style=\" font-size: large; color: white;\">Un prosect avec le même numéro de mobile existe déjà</span>"
+                  "DUPLICATE_CELPHONE_ENTRY": "<span style=\" font-size: large; color: white;\">Un prosect avec le même numéro de mobile existe déjà</span>",
+                  "NO_FIELD_UPDATED": "Vous n'avez mis à jour aucun champ"
             }
       },
       "countries": [
@@ -1085,7 +1086,8 @@
                   "MANDATORY_FIELDS_MISSING": "<span style=\" font-size: large; color: white;\">Mandatory field(s) missing</span>",
                   "UNKNOWN_ERROR": "<span style=\" font-size: large; color: white;\">An unknown error occurred server side</span>",
                   "DUPLICATE_EMAIL_ENTRY": "<span style=\" font-size: large; color: white;\">A Lead with the same email already exists</span>",
-                  "DUPLICATE_CELPHONE_ENTRY": "<span style=\" font-size: large; color: white;\">A Lead with the same mobile phone number already exists</span>"
+                  "DUPLICATE_CELPHONE_ENTRY": "<span style=\" font-size: large; color: white;\">A Lead with the same mobile phone number already exists</span>",
+                  "NO_FIELD_UPDATED": "No field updated"
             }
       },
       "countries": [

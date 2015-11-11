@@ -48,15 +48,18 @@ export default class LeadActions {
                                         content: 'networkSuccess.successfullyUpdatedLead'
                                 })
                         } else {
-                                vResponse.statusCode ? 
-                                AlertsStore.addNewAlertMessage({
-                                        nature: Natures.FAILURE,
-                                        content: 'statusCodes.' + vResponse.statusCode
-                                }) :
-                                AlertsStore.addNewAlertMessage({
-                                        nature: Natures.FAILURE,
-                                        content: 'statusCodes.UNKNOWN_ERROR'
-                                })
+                                if(vResponse.statusCode) {
+                                        const vNature = vResponse.statusCode === 'NO_FIELD_UPDATED' ? Natures.INFO : Natures.FAILURE
+                                        AlertsStore.addNewAlertMessage({
+                                                nature: vNature,
+                                                content: 'statusCodes.' + vResponse.statusCode
+                                        })        
+                                } else {
+                                        AlertsStore.addNewAlertMessage({
+                                                nature: Natures.FAILURE,
+                                                content: 'statusCodes.UNKNOWN_ERROR'
+                                        })
+                                }
                         }
                 }, function(e) { 
                         AlertsStore.addNewAlertMessage({

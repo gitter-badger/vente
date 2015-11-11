@@ -1,4 +1,4 @@
 {
 	"persistLeadServerURL": "http://localhost:3000/add-new-lead",
-	"updateLeadServerURL": "http://localhost:3000/update-new-lead"
+	"updateLeadServerURL": "http://localhost:3000/update-lead"
 }
