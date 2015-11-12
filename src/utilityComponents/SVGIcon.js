@@ -20,7 +20,6 @@ export default class SVGIcon extends React.Component {
   * @returns {jsx}
   */
   render() {
-    console.log(this.props.imageUrl)
     const vMask = 'url(' + this.props.imageUrl + ') no-repeat ' + 50 + '% ' + 50 + '%',
           vMaskSize = 'cover',
           defaultStyle = {
