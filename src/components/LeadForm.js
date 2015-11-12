@@ -203,7 +203,7 @@ class LeadForm extends React.Component {
     return (
       <div onFocus={this.hideDatePicker}>
   			<Header lang={this.props.lang} />
-        <SVGIcon imageUrl="./src/icons/addClient.svg" customStyle={ {marginLeft: 'auto', width: 48 + 'px', height: 48 + 'px', backgroundColor: '#69F0AE'} } />
+        <SVGIcon imageUrl="./src/icons/addClient.svg" customStyle={ {cursor: 'pointer', marginLeft: 'auto', width: 48 + 'px', height: 48 + 'px', backgroundColor: '#69F0AE'} } />
         <form className="grid-form">
           <fieldset>
               <legend style={{fontFamily: 'RobotoRegular'}}>{this.props.formName}</legend>
