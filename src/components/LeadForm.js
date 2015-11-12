@@ -12,6 +12,7 @@ import DataCheck from '../common/DataCheck'
 import Header from './Header'
 import ColorsTheme from '../constants/ColorsTheme.json'
 import AlertActions from '../actions/AlertActions'
+import SVGIcon from '../utilityComponents/SVGIcon'
 
 /**
 * @class LeadForm
@@ -202,6 +203,7 @@ class LeadForm extends React.Component {
     return (
       <div onFocus={this.hideDatePicker}>
   			<Header lang={this.props.lang} />
+        <SVGIcon imageUrl="./src/icons/addClient.svg" customStyle={ {marginLeft: 'auto', width: 48 + 'px', height: 48 + 'px', backgroundColor: '#69F0AE'} } />
         <form className="grid-form">
           <fieldset>
               <legend style={{fontFamily: 'RobotoRegular'}}>{this.props.formName}</legend>
