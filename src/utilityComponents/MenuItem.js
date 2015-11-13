@@ -43,3 +43,8 @@ export default class MenuItem extends React.Component {
     </div>
   }
 }
+
+MenuItem.propTypes = {
+  menuItemTitle: React.PropTypes.string.isRequired,
+  imageUrl: React.PropTypes.string.isRequired
+}
