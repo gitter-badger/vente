@@ -22,7 +22,7 @@ export default class Menu extends React.Component {
   render() {
     return <ul style={{ listStyleType: 'none' }}>
       {this.props.menuItems.map(function(menuItem, i){
-        return <li style={ {padding: 0.5 + 'em'} } key={i}>{menuItem}</li>
+        return <li key={i}>{menuItem}</li>
       })}
     </ul>
   }
