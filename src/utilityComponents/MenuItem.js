@@ -21,18 +21,25 @@ export default class MenuItem extends React.Component {
   * @returns {jsx}
   */
   render() {
-    const vMenuItemStyle = {
+
+    const vMenuItemStyle = { 
+      fontFamily: 'RobotoRegular',
+      display: '-webkit-flex',
+      alignItems: 'center'
+    },
+
+    vMenuItemIconStyle = {
       width: 32 + 'px', 
       height: 32 + 'px', 
       backgroundColor: '#FFFFFF',
       display: 'inline-block'
     }
 
-    return <div style={ { fontFamily: 'RobotoRegular', alignItems: 'center'} }>
+    return <div style={ vMenuItemStyle }>
       <SVGIcon 
         imageUrl={ this.props.imageUrl } 
-        customStyle={ vMenuItemStyle } />
-        <div style={{ alignItems: 'center', margin: 10 + 'px', padding: 10 + 'px', display: 'inline' }}>DASHBOARD</div>
+        customStyle={ vMenuItemIconStyle } />
+        <div style={{ padding: 1 + 'em', display: 'inline' }}>DASHBOARD</div>
     </div>
   }
 }
