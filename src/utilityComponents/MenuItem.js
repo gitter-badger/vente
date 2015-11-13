@@ -39,7 +39,7 @@ export default class MenuItem extends React.Component {
       <SVGIcon 
         imageUrl={ this.props.imageUrl } 
         customStyle={ vMenuItemIconStyle } />
-        <div style={{ padding: 1 + 'em', display: 'inline' }}>DASHBOARD</div>
+        <div style={{ padding: 1 + 'em', display: 'inline' }}>{ this.props.menuItemTitle }</div>
     </div>
   }
 }

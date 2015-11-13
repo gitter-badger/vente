@@ -22,8 +22,8 @@ export default class OffScreenNavigationMenu extends React.Component {
 		
 		const vListElementStyle = {color: 'white', textDecoration: 'none'}
 		
-		const ItemOne = <MenuItem imageUrl="./src/icons/dashboard.svg" />
-		const ItemTwo = <MenuItem imageUrl="./src/icons/dashboard.svg" />
+		const ItemOne = <MenuItem menuItemTitle="DASHBOARD" imageUrl="./src/icons/dashboard.svg" />
+		const ItemTwo = <MenuItem menuItemTitle="SETTINGS" imageUrl="./src/icons/settings.svg" />
 
 		const Items = [ItemOne, ItemTwo]
 		if(this.props.menuState !== 'none') {
