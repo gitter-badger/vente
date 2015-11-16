@@ -13,7 +13,7 @@ The features that are planned to be shipped in the beta of the first version (1.
 
 1. ~~i18n: support of English and French in the UIs~~
 2. ~~Add/Update Lead~~
-3. Transform Lead to Client
+3. ~~Transform Lead to Client~~
 4. Update Client
 5. View [Clients|Leads|Revenue temporal per [Client|Salesman]]
 6. View top N Salesmen 
