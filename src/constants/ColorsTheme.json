@@ -3,12 +3,16 @@
 		"menuBackground": "#1A237E",
 		"buttonColor": "#01579B",
 		"burgerColor": "#1A237E",
-		"labelsColors": "#3F51B5"
+		"labelsColors": "#3F51B5",
+		"addPurchaseFormColor" : "#3F51B5",
+		"transformToClientButtonColor": "#3F51B5"
 	},
 	"greenCash": {
-		"menuBackground": "#00695C",
+		"menuBackground": "#757575",
 		"buttonColor": "#004D40",
 		"burgerColor": "#004D40",
-		"labelsColors": "#009688"
+		"labelsColors": "#009688",
+		"addPurchaseFormColor" : "#009688",
+		"transformToClientButtonColor": "#009688"
 	}
 }
