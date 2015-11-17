@@ -9,7 +9,7 @@
          "submitButtonLabel": "METTRE A JOUR"
       },
       "addPurchaseFormLabels": {
-            "formName": "Transformer le prospect en client",
+            "formName": "TRANSFORMER PROSPECT EN CLIENT",
             "amount": "Montant de la transaction",
             "productID": "Identifiant du produit",
             "transactionDate": "Date de la transaction"
@@ -1064,7 +1064,7 @@
          "submitButtonLabel": "UPDATE"
       },
       "addPurchaseFormLabels": {
-            "formName": "Transform Lead to Client",
+            "formName": "TRANSFORM LEAD TO CLIENT",
             "amount": "Transaction Amount",
             "productID": "Product ID",
             "transactionDate": "Transaction Date"
