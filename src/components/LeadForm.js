@@ -13,7 +13,7 @@ import Header from './Header'
 import ColorsTheme from '../constants/ColorsTheme.json'
 import AlertActions from '../actions/AlertActions'
 import SVGIcon from '../utilityComponents/SVGIcon'
-
+import AddPurchaseForm from './AddPurchaseForm'
 /**
 * @class LeadForm
 * @author Mayas Haddad
@@ -34,7 +34,7 @@ class LeadForm extends React.Component {
     this.hideDatePicker = this.hideDatePicker.bind(this)
     this.handleTitleChangeMr = this.handleTitleChangeMr.bind(this)
     this.handleTitleChangeMrs = this.handleTitleChangeMrs.bind(this)
-    
+    this.showAddPurchaseForm = this.showAddPurchaseForm.bind(this)
     
     this.state = {
       style: this.getDefaultLabelStyles()
@@ -192,7 +192,13 @@ class LeadForm extends React.Component {
   handleTitleChangeMrs() {
     this.setState({'title': 'mrs'})
   }
-
+  
+  showAddPurchaseForm() {
+    if(!this.state.addPurchaseForm) {
+      this.setState({'addPurchaseForm': <AddPurchaseForm lang={this.props.lang} theme={this.props.theme} />})
+    }
+  }
+  
   /**
   * renders the JSX representing the add new lead form.
   * @returns {jsx}
@@ -203,7 +209,10 @@ class LeadForm extends React.Component {
     return (
       <div onFocus={this.hideDatePicker}>
   			<Header lang={this.props.lang} />
-        <SVGIcon imageUrl="./src/icons/addClient.svg" customStyle={ {cursor: 'pointer', marginLeft: 'auto', width: 48 + 'px', height: 48 + 'px', backgroundColor: '#69F0AE'} } />
+        <div onClick={this.showAddPurchaseForm}>
+          <SVGIcon imageUrl="./src/icons/addClient.svg" customStyle={ {cursor: 'pointer', marginLeft: 'auto', width: 2 + 'em', height: 2 + 'em', backgroundColor: ColorsTheme[this.props.theme].transformToClientButtonColor} } />
+        </div>
+        { this.state.addPurchaseForm }
         <form className="grid-form">
           <fieldset>
               <legend style={{fontFamily: 'RobotoRegular'}}>{this.props.formName}</legend>
