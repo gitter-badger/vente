@@ -8,6 +8,12 @@
          "formName": "METTRE A JOUR FICHE PROSPECT",
          "submitButtonLabel": "METTRE A JOUR"
       },
+      "addPurchaseFormLabels": {
+            "formName": "Transformer le prospect en client",
+            "amount": "Montant de la transaction",
+            "productID": "Identifiant du produit",
+            "transactionDate": "Date de la transaction"
+      },
       "leadFormLabels": {
          "title": "Civilité",
          "titleMr": "Mr",
@@ -1056,6 +1062,12 @@
       "updateLeadFormLabels": {
          "formName": "UPDATE LEAD DATA",
          "submitButtonLabel": "UPDATE"
+      },
+      "addPurchaseFormLabels": {
+            "formName": "Transform Lead to Client",
+            "amount": "Transaction Amount",
+            "productID": "Product ID",
+            "transactionDate": "Transaction Date"
       },
       "leadFormLabels": {
          "title": "Title",
