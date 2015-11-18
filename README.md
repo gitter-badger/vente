@@ -16,7 +16,7 @@ The features that are planned to be shipped in the beta of the first version (1.
 3. ~~Transform Lead to Client~~
 4. Update Client
 5. View [Clients|Leads|Revenue temporal per [Client|Salesman]]
-6. View top N Salesmen 
+6. View top N Salesmen
 7. View top N Clients
 8. Create a Sales Manager account
 9. Create a Salesman account
@@ -30,6 +30,19 @@ If you are a business, interested in the app and operating in Western Europe, pl
 
 If you are a dev operating on Planet Earth and want to contribute, feel free to [pull request](https://github.com/MinimalNoise/vente/pulls) after reading [this](https://github.com/MinimalNoise/vente#technical-documentation).
 
+## How to run vente
+```
+npm install -g python electron-prebuilt webpack
+```
+Then go to vente directory :
+```
+npm install
+webpack --config webpack.conf.js
+```
+You can load app using
+```
+electron .
+```
 ## Business Documentation
 ### Roles System
 
@@ -49,7 +62,7 @@ If you are a dev operating on Planet Earth and want to contribute, feel free to 
 
 ## Technical Documentation
 ### Technical Architecture
-Vente is composed of: 
+Vente is composed of:
 * a frontend part (Desktop, Mobile, Web apps) implemented in web technologies
 * a set of standalone business services representing the backend of the solution and collaborating through JSON REST HTTP APIs
 
