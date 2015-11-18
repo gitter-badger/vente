@@ -193,9 +193,12 @@ class LeadForm extends React.Component {
     this.setState({'title': 'mrs'})
   }
   
+  handlePurchaseFormChange() {
+  }
+  
   showAddPurchaseForm() {
     if(!this.state.addPurchaseForm) {
-      this.setState({'addPurchaseForm': <AddPurchaseForm lang={this.props.lang} theme={this.props.theme} />})
+      this.setState({'addPurchaseForm': <AddPurchaseForm changeHandler={this.handlePurchaseFormChange} lang={this.props.lang} theme={this.props.theme} />})
     }
   }
   
