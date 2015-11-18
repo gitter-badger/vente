@@ -35,7 +35,7 @@ class LeadForm extends React.Component {
     this.handleTitleChangeMr = this.handleTitleChangeMr.bind(this)
     this.handleTitleChangeMrs = this.handleTitleChangeMrs.bind(this)
     this.showAddPurchaseForm = this.showAddPurchaseForm.bind(this)
-    
+    this.handlePurchaseFormChange = this.handlePurchaseFormChange.bind(this)
     this.state = {
       style: this.getDefaultLabelStyles()
     }
@@ -193,7 +193,17 @@ class LeadForm extends React.Component {
     this.setState({'title': 'mrs'})
   }
   
-  handlePurchaseFormChange() {
+  handlePurchaseFormChange(pRefs, pIndex) {
+    const vOldLead = new Immutable.Map(this.state.lead),
+          vOldPurchases = new Immutable.Map(this.state.lead.purchases),
+          vNewPurchases = vOldPurchases.set(pIndex, {
+              'amount': pRefs['amount' + pIndex].value, 
+              'productID': pRefs['productID' + pIndex].value, 
+              'transactionDate': pRefs['transactionDate' + pIndex].value 
+          }),
+          vNewLead = vOldLead.set('purchases', vNewPurchases.toObject())
+     this.setState({'lead': vNewLead.toObject()})
+     console.log(vNewLead.toObject())
   }
   
   showAddPurchaseForm() {

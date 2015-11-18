@@ -79,7 +79,7 @@ class AddPurchaseLine extends React.Component {
   }
   
   handleChange() {
-    this.props.changeHandler(this.refs)
+    this.props.changeHandler(this.refs, this.props.index)
   }
   
   handleDatePicked(e) {
@@ -113,15 +113,15 @@ class AddPurchaseLine extends React.Component {
     return (<div data-row-span="3">
                 <div data-field-span="1">
                   <label style={this.state.style.amount}>{ vAddPurchaseFormLabels.amount }</label>
-                  <input onChange={this.props.changeHandler} type="text" ref={'amount' + this.props.index } />
+                  <input onChange={this.handleChange} type="text" ref={'amount' + this.props.index } />
                 </div>
                 <div data-field-span="1">
                   <label style={this.state.style.productID}>{ vAddPurchaseFormLabels.productID }</label>
-                  <input onChange={this.props.changeHandler} type="text" ref={'productID' + this.props.index } />
+                  <input onChange={this.handleChange} type="text" ref={'productID' + this.props.index } />
                 </div>
                 <div data-field-span="1">
                   <label style={this.state.style.transactionDate}>{ vAddPurchaseFormLabels.transactionDate }</label>
-                  <input onChange={this.props.changeHandler} type="text" ref={'transactionDate' + this.props.index } onFocus={this.makeDatePickerAppear} />
+                  <input onChange={this.handleChange} type="text" ref={'transactionDate' + this.props.index } onFocus={this.makeDatePickerAppear} />
                 </div>
             </div>)
   }
