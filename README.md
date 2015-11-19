@@ -1,4 +1,6 @@
 # Vente
+
+[![Join the chat at https://gitter.im/MinimalNoise/vente](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/MinimalNoise/vente?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 ![alt tag](https://travis-ci.org/MinimalNoise/vente.svg?branch=master)
 
 ## What is it?
